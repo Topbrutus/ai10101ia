@@ -1,0 +1,800 @@
+version: 1
+metadata:
+  nom: Registre maître des tâches
+  description: Source de vérité machine pour la checklist obligatoire du dépôt.
+  owner: Topbrutus
+  langue: fr
+  generated_from: Fondation de dépôt GitHub contrôlée par tâches
+phases:
+- id: P1-CADRAGE
+  ordre: 1
+  titre: Cadrage
+  gate_sortie: Mission, périmètre, vocabulaire et critères d’acceptation validés.
+- id: P2-FONDATION
+  ordre: 2
+  titre: Fondation du dépôt
+  gate_sortie: Dépôt, structure, registre machine et checklist humaine validés.
+- id: P3-CONTROLES-GITHUB
+  ordre: 3
+  titre: Contrôles GitHub
+  gate_sortie: PR gate, issue forms, instructions agents et workflows actifs.
+- id: P4-MODELISATION
+  ordre: 4
+  titre: Modélisation métier
+  gate_sortie: Taxonomie, schémas et catalogues métier approuvés.
+- id: P5-ARCHITECTURE
+  ordre: 5
+  titre: Architecture technique
+  gate_sortie: Noyau registre, règles, commandes et multi-index implémentés.
+- id: P6-FONCTIONNEL
+  ordre: 6
+  titre: Fonctionnel
+  gate_sortie: Scores, académies, reproduction, élection et hub minimal opérationnels.
+- id: P7-QUALITE
+  ordre: 7
+  titre: Qualité et sécurité
+  gate_sortie: Observabilité, sécurité et performance vérifiées.
+- id: P8-DEPLOIEMENT
+  ordre: 8
+  titre: Déploiement
+  gate_sortie: Staging, sauvegardes, restauration et readiness production validés.
+- id: P9-EVOLUTIONS
+  ordre: 9
+  titre: Évolutions
+  gate_sortie: Feuille de route, multi-hub et robot élu préparés.
+tasks:
+- id: T0001
+  ordre: 1
+  phase: P1-CADRAGE
+  titre: Formaliser la charte du projet
+  description: Établir l’objectif, le périmètre, les non-objectifs, le vocabulaire
+    canonique et les critères d’acceptation du dépôt de fondation.
+  obligatoire: true
+  dependances: []
+  statut: done
+  preuve_requise: Document de cadrage validé dans docs/PROJECT_PHASES.md et README.md.
+  validation_requise: Revue documentaire.
+  livrables_attendus:
+  - README.md
+  - docs/PROJECT_PHASES.md
+  fichiers_impactes:
+  - README.md
+  - docs/PROJECT_PHASES.md
+- id: T0002
+  ordre: 2
+  phase: P1-CADRAGE
+  titre: Fixer la gouvernance et les règles d’arbitrage
+  description: Définir qui peut changer quoi, comment une tâche obligatoire peut être
+    modifiée, et quelles validations sont requises.
+  obligatoire: true
+  dependances:
+  - T0001
+  statut: done
+  preuve_requise: Gouvernance documentée et versionnée.
+  validation_requise: Revue gouvernance.
+  livrables_attendus:
+  - docs/GOVERNANCE.md
+  - project/project_policy.yaml
+  fichiers_impactes:
+  - docs/GOVERNANCE.md
+  - project/project_policy.yaml
+- id: T0003
+  ordre: 3
+  phase: P2-FONDATION
+  titre: Poser la structure du dépôt
+  description: Créer l’arborescence de base, les conventions d’édition, les fichiers
+    racine et les répertoires obligatoires.
+  obligatoire: true
+  dependances:
+  - T0001
+  - T0002
+  statut: done
+  preuve_requise: Arborescence commitée avec règles de placement.
+  validation_requise: Validation structurelle.
+  livrables_attendus:
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - docs/REPOSITORY_STRUCTURE.md
+  fichiers_impactes:
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - docs/REPOSITORY_STRUCTURE.md
+- id: T0004
+  ordre: 4
+  phase: P2-FONDATION
+  titre: Créer le registre machine des tâches
+  description: Transformer la checklist fondatrice en registre machine stable, ordonné
+    et validable automatiquement.
+  obligatoire: true
+  dependances:
+  - T0001
+  - T0002
+  - T0003
+  statut: done
+  preuve_requise: Registre YAML validé sans doublon ni trou.
+  validation_requise: Validation automatique + revue.
+  livrables_attendus:
+  - project/todo_registry.yaml
+  fichiers_impactes:
+  - project/todo_registry.yaml
+- id: T0005
+  ordre: 5
+  phase: P2-FONDATION
+  titre: Créer la checklist maître lisible
+  description: Publier la vue humaine imprimable dérivée du registre machine, sans
+    divergence de contenu.
+  obligatoire: true
+  dependances:
+  - T0004
+  statut: done
+  preuve_requise: Checklist synchronisée avec le registre.
+  validation_requise: Validation automatique de synchronisation.
+  livrables_attendus:
+  - docs/MASTER_TODO.md
+  fichiers_impactes:
+  - docs/MASTER_TODO.md
+- id: T0006
+  ordre: 6
+  phase: P2-FONDATION
+  titre: Écrire les scripts de validation du registre
+  description: Fournir des scripts Python robustes pour valider le registre, ses dépendances
+    et sa numérotation.
+  obligatoire: true
+  dependances:
+  - T0004
+  statut: done
+  preuve_requise: Scripts exécutables avec tests verts.
+  validation_requise: Tests unitaires.
+  livrables_attendus:
+  - scripts/validate_todo_registry.py
+  - scripts/check_dependencies.py
+  fichiers_impactes:
+  - scripts/validate_todo_registry.py
+  - scripts/check_dependencies.py
+  - tests/test_validate_todo_registry.py
+  - tests/test_check_dependencies.py
+- id: T0007
+  ordre: 7
+  phase: P2-FONDATION
+  titre: Écrire le mécanisme de synchronisation Markdown ↔ registre
+  description: Permettre la génération ou la vérification stricte de docs/MASTER_TODO.md
+    depuis le registre machine.
+  obligatoire: true
+  dependances:
+  - T0004
+  - T0005
+  statut: done
+  preuve_requise: Commande de check et de write fonctionnelle.
+  validation_requise: Tests unitaires.
+  livrables_attendus:
+  - scripts/sync_checklist.py
+  fichiers_impactes:
+  - scripts/sync_checklist.py
+  - tests/test_sync_checklist.py
+- id: T0008
+  ordre: 8
+  phase: P3-CONTROLES-GITHUB
+  titre: Imposer le workflow de pull request
+  description: Forcer les contributeurs et agents à référencer les tâches, fournir
+    preuves et validations, et déclarer les risques.
+  obligatoire: true
+  dependances:
+  - T0002
+  - T0004
+  - T0005
+  statut: done
+  preuve_requise: Template de PR et validateur de corps de PR commités.
+  validation_requise: Exécution sur PR test.
+  livrables_attendus:
+  - .github/PULL_REQUEST_TEMPLATE.md
+  - scripts/validate_pr_body.py
+  fichiers_impactes:
+  - .github/PULL_REQUEST_TEMPLATE.md
+  - scripts/validate_pr_body.py
+- id: T0009
+  ordre: 9
+  phase: P3-CONTROLES-GITHUB
+  titre: Installer les garde-fous GitHub Actions
+  description: Bloquer automatiquement les PR non conformes et valider le registre,
+    la checklist et les dépendances.
+  obligatoire: true
+  dependances:
+  - T0006
+  - T0007
+  - T0008
+  statut: done
+  preuve_requise: Workflows GitHub Actions exécutables.
+  validation_requise: Lint YAML + simulation de workflows.
+  livrables_attendus:
+  - .github/workflows/validate_todo_registry.yml
+  - .github/workflows/pr_gate.yml
+  - .github/workflows/sync_checklist.yml
+  fichiers_impactes:
+  - .github/workflows/validate_todo_registry.yml
+  - .github/workflows/pr_gate.yml
+  - .github/workflows/sync_checklist.yml
+- id: T0010
+  ordre: 10
+  phase: P3-CONTROLES-GITHUB
+  titre: Structurer les formulaires d’issues
+  description: Fournir des formulaires GitHub pour tâche, bug, fonctionnalité et décision
+    avec référence de tâche quand applicable.
+  obligatoire: true
+  dependances:
+  - T0004
+  - T0008
+  statut: done
+  preuve_requise: Formulaires d’issues versionnés.
+  validation_requise: Revue manuelle GitHub.
+  livrables_attendus:
+  - .github/ISSUE_TEMPLATE/task.yml
+  - .github/ISSUE_TEMPLATE/bug.yml
+  - .github/ISSUE_TEMPLATE/feature.yml
+  - .github/ISSUE_TEMPLATE/decision.yml
+  fichiers_impactes:
+  - .github/ISSUE_TEMPLATE/config.yml
+  - .github/ISSUE_TEMPLATE/task.yml
+  - .github/ISSUE_TEMPLATE/bug.yml
+  - .github/ISSUE_TEMPLATE/feature.yml
+  - .github/ISSUE_TEMPLATE/decision.yml
+- id: T0011
+  ordre: 11
+  phase: P3-CONTROLES-GITHUB
+  titre: Encadrer Copilot et les agents
+  description: Écrire les consignes de dépôt, Copilot et agents pour interdire toute
+    action hors checklist et hors dépendances.
+  obligatoire: true
+  dependances:
+  - T0002
+  - T0004
+  - T0008
+  statut: done
+  preuve_requise: Fichiers d’instructions commités.
+  validation_requise: Revue documentaire.
+  livrables_attendus:
+  - AGENTS.md
+  - .github/copilot-instructions.md
+  - .github/instructions/task-enforcement.instructions.md
+  - .github/instructions/repository-guard.instructions.md
+  fichiers_impactes:
+  - AGENTS.md
+  - .github/copilot-instructions.md
+  - .github/instructions/task-enforcement.instructions.md
+  - .github/instructions/repository-guard.instructions.md
+- id: T0012
+  ordre: 12
+  phase: P3-CONTROLES-GITHUB
+  titre: Documenter les règles de preuve et de validation
+  description: Préciser ce qui compte comme preuve, comme validation et comment le
+    référencer dans issues et PR.
+  obligatoire: true
+  dependances:
+  - T0002
+  - T0008
+  statut: done
+  preuve_requise: Politiques détaillées versionnées.
+  validation_requise: Revue qualité.
+  livrables_attendus:
+  - docs/EVIDENCE_POLICY.md
+  - docs/VALIDATION_POLICY.md
+  fichiers_impactes:
+  - docs/EVIDENCE_POLICY.md
+  - docs/VALIDATION_POLICY.md
+- id: T0013
+  ordre: 13
+  phase: P3-CONTROLES-GITHUB
+  titre: Documenter la mise en place des rulesets GitHub
+  description: Décrire les réglages GitHub à activer pour rendre les checks obligatoires
+    et protéger la branche principale.
+  obligatoire: true
+  dependances:
+  - T0009
+  statut: done
+  preuve_requise: Procédure GitHub actionnable.
+  validation_requise: Revue opérationnelle.
+  livrables_attendus:
+  - docs/GITHUB_RULESET_SETUP.md
+  fichiers_impactes:
+  - docs/GITHUB_RULESET_SETUP.md
+- id: T0014
+  ordre: 14
+  phase: P3-CONTROLES-GITHUB
+  titre: Fabriquer le ZIP de fondation
+  description: Permettre la construction et la publication d’une archive ZIP propre
+    du dépôt de fondation.
+  obligatoire: true
+  dependances:
+  - T0003
+  - T0009
+  statut: done
+  preuve_requise: Script d’archive et workflow d’artefact fonctionnels.
+  validation_requise: Exécution locale ou GitHub Actions.
+  livrables_attendus:
+  - scripts/build_foundation_zip.py
+  - .github/workflows/release_foundation_zip.yml
+  fichiers_impactes:
+  - scripts/build_foundation_zip.py
+  - .github/workflows/release_foundation_zip.yml
+- id: T0015
+  ordre: 15
+  phase: P4-MODELISATION
+  titre: Définir la taxonomie canonique des 108 dieux
+  description: Compléter la liste des 108 dieux, leurs domaines, leurs responsabilités
+    et leurs relations fonctionnelles.
+  obligatoire: true
+  dependances:
+  - T0001
+  - T0002
+  - T0004
+  statut: todo
+  preuve_requise: Registre canonique des dieux.
+  validation_requise: Revue métier + cohérence schéma.
+  livrables_attendus:
+  - project/gods_registry.yaml
+  - docs/GODS_TAXONOMY.md
+  fichiers_impactes:
+  - project/gods_registry.yaml
+  - docs/GODS_TAXONOMY.md
+- id: T0016
+  ordre: 16
+  phase: P4-MODELISATION
+  titre: Définir les académies et leurs cursus
+  description: Établir les académies, les examens, les niveaux de maîtrise et les
+    relations avec les dieux et les robots.
+  obligatoire: true
+  dependances:
+  - T0015
+  statut: todo
+  preuve_requise: Registre des académies et cursus.
+  validation_requise: Revue métier + schémas.
+  livrables_attendus:
+  - project/academies_registry.yaml
+  - docs/ACADEMIES.md
+  fichiers_impactes:
+  - project/academies_registry.yaml
+  - docs/ACADEMIES.md
+- id: T0017
+  ordre: 17
+  phase: P4-MODELISATION
+  titre: Définir les classes de robots et les lignées
+  description: Décrire les classes de robots, leurs permissions, leur cycle de vie
+    et les règles de filiation.
+  obligatoire: true
+  dependances:
+  - T0015
+  - T0016
+  statut: todo
+  preuve_requise: Registre des classes et lignées.
+  validation_requise: Revue métier + validation d’intégrité.
+  livrables_attendus:
+  - project/robot_classes.yaml
+  - docs/LINEAGES.md
+  fichiers_impactes:
+  - project/robot_classes.yaml
+  - docs/LINEAGES.md
+- id: T0018
+  ordre: 18
+  phase: P4-MODELISATION
+  titre: Fixer les schémas métier détaillés
+  description: Étendre les schémas de base pour couvrir dieux, académies, robots,
+    lignées, scores, preuves et élections.
+  obligatoire: true
+  dependances:
+  - T0015
+  - T0016
+  - T0017
+  statut: todo
+  preuve_requise: Jeu de schémas métier versionné.
+  validation_requise: Tests de validation de schéma.
+  livrables_attendus:
+  - project/schemas/
+  fichiers_impactes:
+  - project/schemas/
+- id: T0019
+  ordre: 19
+  phase: P5-ARCHITECTURE
+  titre: Implémenter le registre central des entités
+  description: Créer la couche qui charge, valide, relie et expose l’ensemble des
+    entités du système.
+  obligatoire: true
+  dependances:
+  - T0018
+  statut: todo
+  preuve_requise: Registre central exécutable.
+  validation_requise: Tests unitaires et d’intégration.
+  livrables_attendus:
+  - src/foundation_tools/entity_registry.py
+  fichiers_impactes:
+  - src/foundation_tools/entity_registry.py
+  - tests/
+- id: T0020
+  ordre: 20
+  phase: P5-ARCHITECTURE
+  titre: Implémenter le moteur de règles
+  description: Construire l’évaluateur de règles, la résolution des dépendances et
+    la production de preuves d’exécution.
+  obligatoire: true
+  dependances:
+  - T0018
+  - T0019
+  statut: todo
+  preuve_requise: Prototype du moteur de règles avec journal d’audit.
+  validation_requise: Tests unitaires et scénarios.
+  livrables_attendus:
+  - src/foundation_tools/rules_engine.py
+  fichiers_impactes:
+  - src/foundation_tools/rules_engine.py
+  - tests/
+- id: T0021
+  ordre: 21
+  phase: P5-ARCHITECTURE
+  titre: Implémenter le bus de commandes slash
+  description: Créer le parseur, le routeur et le contrôle des commandes slash du
+    hub.
+  obligatoire: true
+  dependances:
+  - T0018
+  - T0019
+  statut: todo
+  preuve_requise: Catalogue de commandes exécutable.
+  validation_requise: Tests unitaires et intégration.
+  livrables_attendus:
+  - src/foundation_tools/slash_bus.py
+  fichiers_impactes:
+  - src/foundation_tools/slash_bus.py
+  - tests/
+- id: T0022
+  ordre: 22
+  phase: P5-ARCHITECTURE
+  titre: Implémenter le multi-index initial
+  description: Construire l’indexation par identité, phase, statut, filiation, scores
+    et fichiers impactés.
+  obligatoire: true
+  dependances:
+  - T0019
+  statut: todo
+  preuve_requise: Reconstruction d’index reproductible.
+  validation_requise: Tests d’intégrité et performance.
+  livrables_attendus:
+  - src/foundation_tools/multi_index.py
+  fichiers_impactes:
+  - src/foundation_tools/multi_index.py
+  - tests/
+- id: T0023
+  ordre: 23
+  phase: P5-ARCHITECTURE
+  titre: Implémenter la couche de preuves et d’audit
+  description: Journaliser les décisions, les validations, les preuves et les changements
+    critiques.
+  obligatoire: true
+  dependances:
+  - T0019
+  - T0020
+  statut: todo
+  preuve_requise: Registre d’audit structuré.
+  validation_requise: Tests et revue sécurité.
+  livrables_attendus:
+  - src/foundation_tools/evidence.py
+  - templates/evidence_record_template.md
+  fichiers_impactes:
+  - src/foundation_tools/evidence.py
+  - templates/evidence_record_template.md
+  - records/
+- id: T0024
+  ordre: 24
+  phase: P6-FONCTIONNEL
+  titre: Implémenter le système de points
+  description: Calculer et tracer les points attribués aux entités et aux actions
+    selon des règles versionnées.
+  obligatoire: true
+  dependances:
+  - T0018
+  - T0019
+  - T0023
+  statut: todo
+  preuve_requise: Calculateur de points et tests.
+  validation_requise: Tests unitaires.
+  livrables_attendus:
+  - src/foundation_tools/score_points.py
+  fichiers_impactes:
+  - src/foundation_tools/score_points.py
+  - tests/
+- id: T0025
+  ordre: 25
+  phase: P6-FONCTIONNEL
+  titre: Implémenter le système de prestige
+  description: Ajouter le calcul de prestige et ses motifs d’attribution audités.
+  obligatoire: true
+  dependances:
+  - T0024
+  statut: todo
+  preuve_requise: Calculateur de prestige et barèmes versionnés.
+  validation_requise: Tests unitaires + revue métier.
+  livrables_attendus:
+  - src/foundation_tools/score_prestige.py
+  fichiers_impactes:
+  - src/foundation_tools/score_prestige.py
+  - tests/
+- id: T0026
+  ordre: 26
+  phase: P6-FONCTIONNEL
+  titre: Implémenter le système de crédit social
+  description: Ajouter le calcul du crédit social, les causes, les effets et les recours.
+  obligatoire: true
+  dependances:
+  - T0024
+  - T0023
+  statut: todo
+  preuve_requise: Calculateur de crédit social et politique appliquée.
+  validation_requise: Tests + revue gouvernance.
+  livrables_attendus:
+  - src/foundation_tools/score_social.py
+  fichiers_impactes:
+  - src/foundation_tools/score_social.py
+  - tests/
+- id: T0027
+  ordre: 27
+  phase: P6-FONCTIONNEL
+  titre: Implémenter les workflows d’académie
+  description: Créer les parcours d’entraînement, d’examen, de classement, de promotion
+    et de sanction.
+  obligatoire: true
+  dependances:
+  - T0016
+  - T0017
+  - T0020
+  - T0023
+  - T0024
+  statut: todo
+  preuve_requise: Workflows d’académie démontrables.
+  validation_requise: Tests d’intégration.
+  livrables_attendus:
+  - src/foundation_tools/academy_workflows.py
+  fichiers_impactes:
+  - src/foundation_tools/academy_workflows.py
+  - tests/
+- id: T0028
+  ordre: 28
+  phase: P6-FONCTIONNEL
+  titre: Implémenter le workflow de reproduction contrôlée
+  description: Permettre la création de nouvelles lignées et robots avec contrôle
+    des quotas et héritages.
+  obligatoire: true
+  dependances:
+  - T0017
+  - T0023
+  - T0027
+  statut: todo
+  preuve_requise: Workflow de reproduction avec garde-fous.
+  validation_requise: Tests d’intégration + revue sécurité.
+  livrables_attendus:
+  - src/foundation_tools/reproduction.py
+  fichiers_impactes:
+  - src/foundation_tools/reproduction.py
+  - tests/
+- id: T0029
+  ordre: 29
+  phase: P6-FONCTIONNEL
+  titre: Implémenter le workflow d’élection du robot élu
+  description: Créer les critères, les simulations, le jury, les preuves et le couronnement
+    du candidat.
+  obligatoire: true
+  dependances:
+  - T0025
+  - T0026
+  - T0027
+  - T0028
+  statut: todo
+  preuve_requise: Workflow d’élection traçable.
+  validation_requise: Tests d’intégration + revue gouvernance.
+  livrables_attendus:
+  - src/foundation_tools/election.py
+  fichiers_impactes:
+  - src/foundation_tools/election.py
+  - tests/
+- id: T0030
+  ordre: 30
+  phase: P6-FONCTIONNEL
+  titre: Implémenter le hub minimal
+  description: Publier une interface minimale permettant de consulter les entités,
+    lancer des validations et suivre les preuves.
+  obligatoire: true
+  dependances:
+  - T0019
+  - T0021
+  - T0022
+  - T0023
+  statut: todo
+  preuve_requise: Prototype du hub exploitable.
+  validation_requise: Revue fonctionnelle + tests d’intégration.
+  livrables_attendus:
+  - src/foundation_tools/hub.py
+  fichiers_impactes:
+  - src/foundation_tools/hub.py
+  - tests/
+- id: T0031
+  ordre: 31
+  phase: P7-QUALITE
+  titre: Mettre en place l’observabilité
+  description: Ajouter journaux structurés, métriques, traces de validation et tableaux
+    de bord techniques.
+  obligatoire: true
+  dependances:
+  - T0019
+  - T0020
+  - T0021
+  - T0022
+  - T0023
+  statut: todo
+  preuve_requise: Pipeline de logs et métriques décrit et testé.
+  validation_requise: Revue exploitation.
+  livrables_attendus:
+  - docs/OBSERVABILITY.md
+  fichiers_impactes:
+  - docs/OBSERVABILITY.md
+  - src/
+- id: T0032
+  ordre: 32
+  phase: P7-QUALITE
+  titre: Renforcer la sécurité et les approbations
+  description: Appliquer les politiques d’approbation, de sandbox, de secrets et de
+    revue des actions sensibles.
+  obligatoire: true
+  dependances:
+  - T0002
+  - T0021
+  - T0023
+  statut: todo
+  preuve_requise: Contrôles de sécurité et workflows revus.
+  validation_requise: Revue sécurité.
+  livrables_attendus:
+  - docs/SECURITY_CONTROLS.md
+  fichiers_impactes:
+  - docs/SECURITY_CONTROLS.md
+  - .github/workflows/
+- id: T0033
+  ordre: 33
+  phase: P7-QUALITE
+  titre: Préparer la montée en charge
+  description: Mesurer les coûts, reconstruire les index à échelle croissante et corriger
+    les goulots d’étranglement.
+  obligatoire: true
+  dependances:
+  - T0022
+  - T0030
+  - T0031
+  statut: todo
+  preuve_requise: Rapport de performance initial.
+  validation_requise: Tests de charge.
+  livrables_attendus:
+  - docs/PERFORMANCE_PLAN.md
+  fichiers_impactes:
+  - docs/PERFORMANCE_PLAN.md
+  - tests/
+- id: T0034
+  ordre: 34
+  phase: P8-DEPLOIEMENT
+  titre: Préparer staging, sauvegarde et restauration
+  description: Documenter et automatiser l’installation locale, le staging, les sauvegardes
+    et les restaurations.
+  obligatoire: true
+  dependances:
+  - T0030
+  - T0031
+  - T0032
+  statut: todo
+  preuve_requise: Runbooks et scripts d’exploitation.
+  validation_requise: Exercice de restauration.
+  livrables_attendus:
+  - docs/OPERATIONS.md
+  fichiers_impactes:
+  - docs/OPERATIONS.md
+  - Makefile
+  - scripts/
+- id: T0035
+  ordre: 35
+  phase: P8-DEPLOIEMENT
+  titre: Préparer la production initiale
+  description: Valider les checks finaux, les règles GitHub, le packaging et les procédures
+    de rollback avant mise en service.
+  obligatoire: true
+  dependances:
+  - T0034
+  - T0033
+  statut: todo
+  preuve_requise: Checklist de readiness production.
+  validation_requise: Go/no-go formel.
+  livrables_attendus:
+  - docs/PRODUCTION_READINESS.md
+  fichiers_impactes:
+  - docs/PRODUCTION_READINESS.md
+  - .github/workflows/
+- id: T0036
+  ordre: 36
+  phase: P9-EVOLUTIONS
+  titre: Documenter l’exploitation quotidienne
+  description: Rédiger les runbooks opérateur, les procédures de support et les règles
+    de maintenance courante.
+  obligatoire: true
+  dependances:
+  - T0034
+  - T0035
+  statut: todo
+  preuve_requise: Runbooks exploitables.
+  validation_requise: Revue exploitation.
+  livrables_attendus:
+  - docs/RUNBOOKS.md
+  fichiers_impactes:
+  - docs/RUNBOOKS.md
+- id: T0037
+  ordre: 37
+  phase: P9-EVOLUTIONS
+  titre: Ouvrir le chantier des tests avancés
+  description: Planifier les tests de charge, de sécurité, de chaos engineering et
+    de non-régression à grande échelle.
+  obligatoire: true
+  dependances:
+  - T0033
+  - T0035
+  statut: todo
+  preuve_requise: Plan de tests avancés versionné.
+  validation_requise: Revue QA.
+  livrables_attendus:
+  - docs/ADVANCED_QA_PLAN.md
+  fichiers_impactes:
+  - docs/ADVANCED_QA_PLAN.md
+  - tests/
+- id: T0038
+  ordre: 38
+  phase: P9-EVOLUTIONS
+  titre: Préparer la gouvernance multi-hub
+  description: Définir comment plusieurs hubs seront gouvernés, synchronisés et audités
+    sans casser la source de vérité.
+  obligatoire: true
+  dependances:
+  - T0035
+  statut: todo
+  preuve_requise: Charte multi-hub.
+  validation_requise: Revue architecture + gouvernance.
+  livrables_attendus:
+  - docs/MULTI_HUB_GOVERNANCE.md
+  fichiers_impactes:
+  - docs/MULTI_HUB_GOVERNANCE.md
+- id: T0039
+  ordre: 39
+  phase: P9-EVOLUTIONS
+  titre: Préparer la simulation du robot élu
+  description: Définir les scénarios de simulation, de création de hub autonome et
+    les critères de réussite du robot élu.
+  obligatoire: true
+  dependances:
+  - T0029
+  - T0035
+  statut: todo
+  preuve_requise: Plan de simulation du robot élu.
+  validation_requise: Revue stratégique.
+  livrables_attendus:
+  - docs/ROBOT_ELU_SIMULATION.md
+  fichiers_impactes:
+  - docs/ROBOT_ELU_SIMULATION.md
+- id: T0040
+  ordre: 40
+  phase: P9-EVOLUTIONS
+  titre: Préparer la V2 d’industrialisation
+  description: Planifier l’extension du système, l’augmentation du volume, les sous-hubs
+    et l’automatisation supplémentaire.
+  obligatoire: true
+  dependances:
+  - T0036
+  - T0037
+  - T0038
+  - T0039
+  statut: todo
+  preuve_requise: Feuille de route V2.
+  validation_requise: Revue stratégique et technique.
+  livrables_attendus:
+  - docs/V2_ROADMAP.md
+  fichiers_impactes:
+  - docs/V2_ROADMAP.md

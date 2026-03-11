@@ -1,0 +1,31 @@
+labels:
+- name: type:task
+  color: 0052CC
+  description: Travail planifié lié au registre de tâches.
+- name: type:bug
+  color: D73A4A
+  description: Défaut observé dans le dépôt ou les workflows.
+- name: type:feature
+  color: 5319E7
+  description: Extension fonctionnelle proposée.
+- name: type:decision
+  color: FBCA04
+  description: Décision ou arbitrage à documenter.
+- name: status:blocked
+  color: B60205
+  description: Travail bloqué par une dépendance ou un arbitrage.
+- name: status:ready
+  color: 0E8A16
+  description: Travail prêt à être pris.
+- name: status:in-progress
+  color: 1D76DB
+  description: Travail en cours.
+- name: status:needs-evidence
+  color: E99695
+  description: Preuves insuffisantes.
+- name: status:needs-validation
+  color: C2E0C6
+  description: Validation manquante.
+- name: governance
+  color: F9D0C4
+  description: Changement de gouvernance, politique ou règle de dépôt.

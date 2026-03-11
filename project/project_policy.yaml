@@ -1,0 +1,38 @@
+version: 1
+repository_name: ai10101ia
+branch_patterns:
+  single_task: ^task/(T\d{4})-[a-z0-9._-]+$
+  multi_task: ^batch/(T\d{4}(?:-T\d{4})+)-[a-z0-9._-]+$
+  maintenance: ^maintenance/[a-z0-9._-]+$
+allowed_statuses:
+- todo
+- in_progress
+- blocked
+- done
+- waived
+allowed_task_id_pattern: ^T\d{4}$
+critical_files:
+- project/todo_registry.yaml
+- project/project_policy.yaml
+- docs/MASTER_TODO.md
+- docs/WORKFLOW_RULES.md
+- .github/PULL_REQUEST_TEMPLATE.md
+- .github/workflows/pr_gate.yml
+required_pr_sections:
+- Tâches liées
+- Objectif
+- Portée
+- Risques
+- Preuves
+- Validations
+- Impacts fichiers
+- Plan de rollback
+required_pr_checkboxes:
+- Je confirme avoir lu docs/MASTER_TODO.md, project/todo_registry.yaml et docs/WORKFLOW_RULES.md.
+- Je confirme ne pas avoir contourné la checklist maître.
+- Je confirme que les dépendances des tâches référencées sont satisfaites ou explicitement
+  levées.
+justification_section_for_critical_changes: Justification des modifications critiques
+done_statuses_for_dependencies:
+- done
+- waived
