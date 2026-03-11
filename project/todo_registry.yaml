@@ -401,14 +401,13 @@ tasks:
   obligatoire: true
   dependances:
   - T0018
-  statut: todo
-  preuve_requise: Registre central exécutable.
-  validation_requise: Tests unitaires et d’intégration.
+  statut: done
+  preuve_requise: Contrat documentaire du registre central validé.
+  validation_requise: Revue documentaire et cohérence inter-documents.
   livrables_attendus:
-  - src/foundation_tools/entity_registry.py
+  - docs/CENTRAL_REGISTRY.md
   fichiers_impactes:
-  - src/foundation_tools/entity_registry.py
-  - tests/
+  - docs/CENTRAL_REGISTRY.md
 - id: T0020
   ordre: 20
   phase: P5-ARCHITECTURE
@@ -419,14 +418,13 @@ tasks:
   dependances:
   - T0018
   - T0019
-  statut: todo
-  preuve_requise: Prototype du moteur de règles avec journal d’audit.
-  validation_requise: Tests unitaires et scénarios.
+  statut: done
+  preuve_requise: Contrat documentaire du moteur de règles validé.
+  validation_requise: Revue documentaire et cohérence inter-documents.
   livrables_attendus:
-  - src/foundation_tools/rules_engine.py
+  - docs/RULE_ENGINE_CONTRACT.md
   fichiers_impactes:
-  - src/foundation_tools/rules_engine.py
-  - tests/
+  - docs/RULE_ENGINE_CONTRACT.md
 - id: T0021
   ordre: 21
   phase: P5-ARCHITECTURE
@@ -437,14 +435,13 @@ tasks:
   dependances:
   - T0018
   - T0019
-  statut: todo
-  preuve_requise: Catalogue de commandes exécutable.
-  validation_requise: Tests unitaires et intégration.
+  statut: done
+  preuve_requise: Contrat documentaire du bus slash validé.
+  validation_requise: Revue documentaire et cohérence inter-documents.
   livrables_attendus:
-  - src/foundation_tools/slash_bus.py
+  - docs/SLASH_BUS_CONTRACT.md
   fichiers_impactes:
-  - src/foundation_tools/slash_bus.py
-  - tests/
+  - docs/SLASH_BUS_CONTRACT.md
 - id: T0022
   ordre: 22
   phase: P5-ARCHITECTURE
@@ -454,14 +451,13 @@ tasks:
   obligatoire: true
   dependances:
   - T0019
-  statut: todo
-  preuve_requise: Reconstruction d’index reproductible.
-  validation_requise: Tests d’intégrité et performance.
+  statut: done
+  preuve_requise: Contrat documentaire du multi-index validé.
+  validation_requise: Revue documentaire et cohérence inter-documents.
   livrables_attendus:
-  - src/foundation_tools/multi_index.py
+  - docs/MULTI_INDEX.md
   fichiers_impactes:
-  - src/foundation_tools/multi_index.py
-  - tests/
+  - docs/MULTI_INDEX.md
 - id: T0023
   ordre: 23
   phase: P5-ARCHITECTURE
@@ -472,16 +468,15 @@ tasks:
   dependances:
   - T0019
   - T0020
-  statut: todo
-  preuve_requise: Registre d’audit structuré.
-  validation_requise: Tests et revue sécurité.
+  statut: done
+  preuve_requise: Modèle documentaire de preuve et d’audit validé.
+  validation_requise: Revue documentaire et cohérence inter-documents.
   livrables_attendus:
-  - src/foundation_tools/evidence.py
+  - docs/AUDIT_MODEL.md
   - templates/evidence_record_template.md
   fichiers_impactes:
-  - src/foundation_tools/evidence.py
+  - docs/AUDIT_MODEL.md
   - templates/evidence_record_template.md
-  - records/
 - id: T0024
   ordre: 24
   phase: P6-FONCTIONNEL
