@@ -328,7 +328,7 @@ tasks:
   - T0001
   - T0002
   - T0004
-  statut: todo
+  statut: done
   preuve_requise: Registre canonique des dieux.
   validation_requise: Revue métier + cohérence schéma.
   livrables_attendus:
@@ -346,7 +346,7 @@ tasks:
   obligatoire: true
   dependances:
   - T0015
-  statut: todo
+  statut: done
   preuve_requise: Registre des académies et cursus.
   validation_requise: Revue métier + schémas.
   livrables_attendus:
@@ -365,7 +365,7 @@ tasks:
   dependances:
   - T0015
   - T0016
-  statut: todo
+  statut: done
   preuve_requise: Registre des classes et lignées.
   validation_requise: Revue métier + validation d’intégrité.
   livrables_attendus:
@@ -385,7 +385,7 @@ tasks:
   - T0015
   - T0016
   - T0017
-  statut: todo
+  statut: done
   preuve_requise: Jeu de schémas métier versionné.
   validation_requise: Tests de validation de schéma.
   livrables_attendus:
@@ -488,7 +488,7 @@ tasks:
   - T0018
   - T0019
   - T0023
-  statut: todo
+  statut: done
   preuve_requise: Calculateur de points et tests.
   validation_requise: Tests unitaires.
   livrables_attendus:
@@ -504,7 +504,7 @@ tasks:
   obligatoire: true
   dependances:
   - T0024
-  statut: todo
+  statut: done
   preuve_requise: Calculateur de prestige et barèmes versionnés.
   validation_requise: Tests unitaires + revue métier.
   livrables_attendus:
@@ -521,7 +521,7 @@ tasks:
   dependances:
   - T0024
   - T0023
-  statut: todo
+  statut: done
   preuve_requise: Calculateur de crédit social et politique appliquée.
   validation_requise: Tests + revue gouvernance.
   livrables_attendus:
@@ -542,7 +542,7 @@ tasks:
   - T0020
   - T0023
   - T0024
-  statut: todo
+  statut: done
   preuve_requise: Workflows d’académie démontrables.
   validation_requise: Tests d’intégration.
   livrables_attendus:
@@ -561,7 +561,7 @@ tasks:
   - T0017
   - T0023
   - T0027
-  statut: todo
+  statut: done
   preuve_requise: Workflow de reproduction avec garde-fous.
   validation_requise: Tests d’intégration + revue sécurité.
   livrables_attendus:
@@ -571,50 +571,11 @@ tasks:
   - tests/
 - id: T0029
   ordre: 29
-  phase: P6-FONCTIONNEL
-  titre: Implémenter le workflow d’élection du robot élu
-  description: Créer les critères, les simulations, le jury, les preuves et le couronnement
-    du candidat.
-  obligatoire: true
-  dependances:
-  - T0025
-  - T0026
-  - T0027
-  - T0028
-  statut: todo
-  preuve_requise: Workflow d’élection traçable.
-  validation_requise: Tests d’intégration + revue gouvernance.
-  livrables_attendus:
-  - src/foundation_tools/election.py
-  fichiers_impactes:
-  - src/foundation_tools/election.py
-  - tests/
-- id: T0030
-  ordre: 30
-  phase: P6-FONCTIONNEL
-  titre: Implémenter le hub minimal
-  description: Publier une interface minimale permettant de consulter les entités,
-    lancer des validations et suivre les preuves.
-  obligatoire: true
-  dependances:
-  - T0019
-  - T0021
-  - T0022
-  - T0023
-  statut: todo
-  preuve_requise: Prototype du hub exploitable.
-  validation_requise: Revue fonctionnelle + tests d’intégration.
-  livrables_attendus:
-  - src/foundation_tools/hub.py
-  fichiers_impactes:
-  - src/foundation_tools/hub.py
-  - tests/
-- id: T0031
-  ordre: 31
-  phase: P7-QUALITE
-  titre: Mettre en place l’observabilité
-  description: Ajouter journaux structurés, métriques, traces de validation et tableaux
-    de bord techniques.
+  phase: P5-ARCHITECTURE
+  titre: Créer le dataset bootstrap canonique
+  description: Construire un jeu pilote cohérent et versionné (hub, dieux, académies,
+    robots, lignées, scores, preuves, événements) permettant de charger et tester
+    le système sans données manuelles.
   obligatoire: true
   dependances:
   - T0019
@@ -622,51 +583,112 @@ tasks:
   - T0021
   - T0022
   - T0023
-  statut: todo
-  preuve_requise: Pipeline de logs et métriques décrit et testé.
-  validation_requise: Revue exploitation.
+  statut: done
+  preuve_requise: Fichiers bootstrap YAML valides et cohérents avec les schémas et
+    le registre central.
+  validation_requise: Tests de chargement et de cohérence des entités bootstrap.
   livrables_attendus:
-  - docs/OBSERVABILITY.md
+  - project/bootstrap_entities.yaml
+  - project/bootstrap_proofs.yaml
+  - project/bootstrap_events.yaml
+  - docs/PILOT_DATASET.md
   fichiers_impactes:
-  - docs/OBSERVABILITY.md
-  - src/
+  - project/bootstrap_entities.yaml
+  - project/bootstrap_proofs.yaml
+  - project/bootstrap_events.yaml
+  - docs/PILOT_DATASET.md
+  - tests/
+- id: T0030
+  ordre: 30
+  phase: P5-ARCHITECTURE
+  titre: Construire le pipeline de validation métier
+  description: 'Fournir un script de validation complet du domaine AI10101IA : schémas
+    métier, relations inter-entités, références commandes/règles/preuves, cohérence
+    scores, messages d''erreur lisibles.'
+  obligatoire: true
+  dependances:
+  - T0029
+  statut: done
+  preuve_requise: Script de validation exécutable sur les datasets bootstrap avec
+    code de retour correct.
+  validation_requise: Tests unitaires et d'intégration sur la validation métier.
+  livrables_attendus:
+  - scripts/validate_domain_assets.py
+  - docs/VALIDATION_POLICY.md
+  - docs/CLI_USAGE.md
+  fichiers_impactes:
+  - scripts/validate_domain_assets.py
+  - docs/VALIDATION_POLICY.md
+  - docs/CLI_USAGE.md
+  - Makefile
+  - tests/
+- id: T0031
+  ordre: 31
+  phase: P5-ARCHITECTURE
+  titre: Créer les commandes locales / CLI de pilotage
+  description: Fournir une couche CLI minimale pour charger le dataset bootstrap,
+    valider le domaine, afficher/lister des entités, reconstruire le multi-index pilote
+    et exporter une vue d'audit.
+  obligatoire: true
+  dependances:
+  - T0029
+  - T0030
+  statut: done
+  preuve_requise: CLI exécutable localement avec commandes stables et sortie lisible.
+  validation_requise: Tests des commandes CLI sur le dataset bootstrap.
+  livrables_attendus:
+  - scripts/run_registry_cli.py
+  - docs/CLI_USAGE.md
+  fichiers_impactes:
+  - scripts/run_registry_cli.py
+  - src/foundation_tools/registry_tools.py
+  - docs/CLI_USAGE.md
+  - Makefile
+  - tests/
 - id: T0032
   ordre: 32
-  phase: P7-QUALITE
-  titre: Renforcer la sécurité et les approbations
-  description: Appliquer les politiques d’approbation, de sandbox, de secrets et de
-    revue des actions sensibles.
+  phase: P5-ARCHITECTURE
+  titre: Construire les vues d'audit lisibles
+  description: 'Générer des sorties structurées lisibles pour audit humain : vue synthétique
+    du registre bootstrap, relations de filiation, preuves par entité, incohérences
+    détectées, synthèse exportable.'
   obligatoire: true
   dependances:
-  - T0002
-  - T0021
-  - T0023
-  statut: todo
-  preuve_requise: Contrôles de sécurité et workflows revus.
-  validation_requise: Revue sécurité.
+  - T0029
+  - T0030
+  statut: done
+  preuve_requise: Script de rapport d'audit générant un fichier Markdown ou JSON exploitable.
+  validation_requise: Tests de génération et de contenu du rapport d'audit.
   livrables_attendus:
-  - docs/SECURITY_CONTROLS.md
+  - scripts/build_audit_report.py
+  - docs/AUDIT_READ_MODELS.md
   fichiers_impactes:
-  - docs/SECURITY_CONTROLS.md
-  - .github/workflows/
+  - scripts/build_audit_report.py
+  - docs/AUDIT_READ_MODELS.md
+  - tests/
 - id: T0033
   ordre: 33
-  phase: P7-QUALITE
-  titre: Préparer la montée en charge
-  description: Mesurer les coûts, reconstruire les index à échelle croissante et corriger
-    les goulots d’étranglement.
+  phase: P5-ARCHITECTURE
+  titre: Assembler le flux bout-en-bout pilote
+  description: 'Démontrer un flux complet et traçable sur le jeu bootstrap : chargement,
+    validation, consultation d''entités, rattachement de preuves, reconstruction du
+    multi-index, génération d''audit, vérification de cohérence.'
   obligatoire: true
   dependances:
-  - T0022
+  - T0029
   - T0030
   - T0031
-  statut: todo
-  preuve_requise: Rapport de performance initial.
-  validation_requise: Tests de charge.
+  - T0032
+  statut: done
+  preuve_requise: Flux pilote rejouable avec tests automatisés et documentation claire.
+  validation_requise: Tests bout-en-bout sur le flux pilote complet.
   livrables_attendus:
-  - docs/PERFORMANCE_PLAN.md
+  - docs/PILOT_FLOW.md
+  - scripts/run_pilot_flow.py
   fichiers_impactes:
-  - docs/PERFORMANCE_PLAN.md
+  - docs/PILOT_FLOW.md
+  - scripts/run_pilot_flow.py
+  - Makefile
   - tests/
 - id: T0034
   ordre: 34

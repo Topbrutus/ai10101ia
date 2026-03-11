@@ -1,0 +1,152 @@
+version: 1
+description: >
+  Preuves pilotes bootstrap AI10101IA.
+  Ces preuves démontrent que les entités bootstrap ont été créées,
+  validées et indexées conformément au modèle de preuve (T0023).
+generated_for: T0029
+cree_le: "2026-03-11T23:00:00Z"
+
+preuves:
+  - id: PREUVE-00001
+    type_preuve: validation_tache
+    version: 1
+    origine: ci_cd
+    date_preuve: "2026-03-11T23:00:00Z"
+    auteur: ci_cd/validate_todo_registry
+    auteur_type: systeme
+    tache_id: T0029
+    regle_id: null
+    commande: null
+    entite_id: TACHE-T0029
+    contenu:
+      statut_avant: todo
+      statut_apres: done
+      motif: "Dataset bootstrap canonique créé et validé."
+      artefacts:
+        - project/bootstrap_entities.yaml
+        - project/bootstrap_proofs.yaml
+        - project/bootstrap_events.yaml
+        - docs/PILOT_DATASET.md
+    niveau_confiance: eleve
+    validation: automatique
+    validee_par: null
+    validee_le: null
+    immuable: true
+    archive: false
+
+  - id: PREUVE-00002
+    type_preuve: modification_entite
+    version: 1
+    origine: systeme
+    date_preuve: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    tache_id: T0029
+    regle_id: null
+    commande: null
+    entite_id: HUB-001
+    contenu:
+      statut_avant: null
+      statut_apres: actif
+      motif: "Création du hub pilote bootstrap."
+      artefacts:
+        - project/bootstrap_entities.yaml
+    niveau_confiance: moyen
+    validation: automatique
+    validee_par: null
+    validee_le: null
+    immuable: true
+    archive: false
+
+  - id: PREUVE-00003
+    type_preuve: modification_entite
+    version: 1
+    origine: systeme
+    date_preuve: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    tache_id: T0029
+    regle_id: null
+    commande: null
+    entite_id: ROBOT-0001
+    contenu:
+      statut_avant: null
+      statut_apres: actif
+      motif: "Création du robot pilote Axiom-Alpha (classe Validateur, génération 1)."
+      artefacts:
+        - project/bootstrap_entities.yaml
+    niveau_confiance: moyen
+    validation: automatique
+    validee_par: null
+    validee_le: null
+    immuable: true
+    archive: false
+
+  - id: PREUVE-00004
+    type_preuve: execution_regle
+    version: 1
+    origine: moteur_regles
+    date_preuve: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    tache_id: T0029
+    regle_id: REGLE-0001
+    commande: null
+    entite_id: ROBOT-0001
+    contenu:
+      statut_avant: null
+      statut_apres: valide
+      motif: "Scores du robot ROBOT-0001 valides selon REGLE-0001."
+      artefacts: []
+    niveau_confiance: eleve
+    validation: automatique
+    validee_par: null
+    validee_le: null
+    immuable: true
+    archive: false
+
+  - id: PREUVE-00005
+    type_preuve: execution_regle
+    version: 1
+    origine: moteur_regles
+    date_preuve: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    tache_id: T0029
+    regle_id: REGLE-0002
+    commande: null
+    entite_id: ROBOT-0002
+    contenu:
+      statut_avant: null
+      statut_apres: valide
+      motif: "Filiation de ROBOT-0002 vers ROBOT-0001 valide selon REGLE-0002."
+      artefacts: []
+    niveau_confiance: eleve
+    validation: automatique
+    validee_par: null
+    validee_le: null
+    immuable: true
+    archive: false
+
+  - id: PREUVE-00006
+    type_preuve: operation_index
+    version: 1
+    origine: systeme
+    date_preuve: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    tache_id: T0029
+    regle_id: null
+    commande: null
+    entite_id: HUB-001
+    contenu:
+      statut_avant: null
+      statut_apres: indexe
+      motif: "Multi-index pilote reconstruit sur le dataset bootstrap."
+      artefacts: []
+    niveau_confiance: moyen
+    validation: automatique
+    validee_par: null
+    validee_le: null
+    immuable: true
+    archive: false

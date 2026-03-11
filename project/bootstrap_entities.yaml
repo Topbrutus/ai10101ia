@@ -1,0 +1,405 @@
+version: 1
+description: >
+  Dataset bootstrap canonique AI10101IA — jeu pilote minimal cohérent.
+  Ce fichier contient les entités de référence pour valider le système
+  sans données manuelles. Conforme aux schémas définis en T0018.
+generated_for: T0029
+cree_le: "2026-03-11T23:00:00Z"
+
+hub:
+  id: HUB-001
+  type: HUB
+  version: 1
+  statut: actif
+  nom: "Hub Pilote AI10101IA"
+  proprietaire: Topbrutus
+  cree_le: "2026-03-11T23:00:00Z"
+  modifie_le: "2026-03-11T23:00:00Z"
+  description: "Hub pilote bootstrap pour tests et validation du système."
+  relations: []
+  metadonnees:
+    environnement: pilote
+    bootstrap: true
+
+dieux:
+  - id: DIEU-001
+    type: DIEU
+    version: 1
+    statut: actif
+    nom: "Anaxis"
+    domaine: "Logique et cohérence"
+    responsabilites:
+      - "Validation des règles de cohérence"
+      - "Arbitrage des conflits logiques"
+    rang: primaire
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: supervise
+        cible: ACADEMIE-001
+    metadonnees:
+      bootstrap: true
+
+  - id: DIEU-002
+    type: DIEU
+    version: 1
+    statut: actif
+    nom: "Orialys"
+    domaine: "Mémoire et audit"
+    responsabilites:
+      - "Conservation des preuves"
+      - "Gestion de l'historique des entités"
+    rang: primaire
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: supervise
+        cible: ACADEMIE-002
+    metadonnees:
+      bootstrap: true
+
+  - id: DIEU-003
+    type: DIEU
+    version: 1
+    statut: actif
+    nom: "Vortex"
+    domaine: "Exécution et performance"
+    responsabilites:
+      - "Optimisation des workflows"
+      - "Contrôle de la vitesse d'exécution"
+    rang: secondaire
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: supervise
+        cible: ACADEMIE-001
+    metadonnees:
+      bootstrap: true
+
+academies:
+  - id: ACADEMIE-001
+    type: ACADEMIE
+    version: 1
+    statut: actif
+    nom: "Académie de Logique Appliquée"
+    dieu_tuteur: DIEU-001
+    hub_id: HUB-001
+    cursus:
+      - niveau: 1
+        titre: "Fondamentaux de la cohérence"
+        duree_cycles: 10
+      - niveau: 2
+        titre: "Règles avancées et arbitrage"
+        duree_cycles: 20
+    capacite_max: 50
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: heberge
+        cible: ROBOT-0001
+      - type: heberge
+        cible: ROBOT-0002
+    metadonnees:
+      bootstrap: true
+
+  - id: ACADEMIE-002
+    type: ACADEMIE
+    version: 1
+    statut: actif
+    nom: "Académie de la Mémoire Structurée"
+    dieu_tuteur: DIEU-002
+    hub_id: HUB-001
+    cursus:
+      - niveau: 1
+        titre: "Indexation et rétention"
+        duree_cycles: 8
+      - niveau: 2
+        titre: "Audit avancé et preuves"
+        duree_cycles: 15
+    capacite_max: 30
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: heberge
+        cible: ROBOT-0003
+    metadonnees:
+      bootstrap: true
+
+robots:
+  - id: ROBOT-0001
+    type: ROBOT
+    version: 1
+    statut: actif
+    nom: "Axiom-Alpha"
+    classe: "Validateur"
+    lignee_id: LIGNEE-001
+    academie_id: ACADEMIE-001
+    dieu_tuteur: DIEU-001
+    hub_id: HUB-001
+    niveau_maitrise: 2
+    scores:
+      points: 150
+      prestige: 12
+      credit_social: 85
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: appartient_a
+        cible: LIGNEE-001
+      - type: inscrit_a
+        cible: ACADEMIE-001
+    metadonnees:
+      bootstrap: true
+      generation: 1
+
+  - id: ROBOT-0002
+    type: ROBOT
+    version: 1
+    statut: actif
+    nom: "Axiom-Beta"
+    classe: "Validateur"
+    lignee_id: LIGNEE-001
+    academie_id: ACADEMIE-001
+    dieu_tuteur: DIEU-001
+    hub_id: HUB-001
+    niveau_maitrise: 1
+    scores:
+      points: 60
+      prestige: 4
+      credit_social: 70
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: appartient_a
+        cible: LIGNEE-001
+      - type: inscrit_a
+        cible: ACADEMIE-001
+      - type: descendant_de
+        cible: ROBOT-0001
+    metadonnees:
+      bootstrap: true
+      generation: 2
+
+  - id: ROBOT-0003
+    type: ROBOT
+    version: 1
+    statut: actif
+    nom: "Mnemo-Prime"
+    classe: "Archiviste"
+    lignee_id: LIGNEE-002
+    academie_id: ACADEMIE-002
+    dieu_tuteur: DIEU-002
+    hub_id: HUB-001
+    niveau_maitrise: 2
+    scores:
+      points: 200
+      prestige: 18
+      credit_social: 90
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: appartient_a
+        cible: LIGNEE-002
+      - type: inscrit_a
+        cible: ACADEMIE-002
+    metadonnees:
+      bootstrap: true
+      generation: 1
+
+  - id: ROBOT-0004
+    type: ROBOT
+    version: 1
+    statut: actif
+    nom: "Exec-One"
+    classe: "Exécuteur"
+    lignee_id: LIGNEE-003
+    academie_id: ACADEMIE-001
+    dieu_tuteur: DIEU-003
+    hub_id: HUB-001
+    niveau_maitrise: 1
+    scores:
+      points: 30
+      prestige: 2
+      credit_social: 65
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations:
+      - type: appartient_a
+        cible: LIGNEE-003
+      - type: inscrit_a
+        cible: ACADEMIE-001
+    metadonnees:
+      bootstrap: true
+      generation: 1
+
+lignees:
+  - id: LIGNEE-001
+    type: LIGNEE
+    version: 1
+    statut: actif
+    nom: "Lignée Axiom"
+    classe_dominante: "Validateur"
+    fondateur_id: ROBOT-0001
+    hub_id: HUB-001
+    dieu_tuteur: DIEU-001
+    membres:
+      - ROBOT-0001
+      - ROBOT-0002
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+  - id: LIGNEE-002
+    type: LIGNEE
+    version: 1
+    statut: actif
+    nom: "Lignée Mnemo"
+    classe_dominante: "Archiviste"
+    fondateur_id: ROBOT-0003
+    hub_id: HUB-001
+    dieu_tuteur: DIEU-002
+    membres:
+      - ROBOT-0003
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+  - id: LIGNEE-003
+    type: LIGNEE
+    version: 1
+    statut: actif
+    nom: "Lignée Exec"
+    classe_dominante: "Exécuteur"
+    fondateur_id: ROBOT-0004
+    hub_id: HUB-001
+    dieu_tuteur: DIEU-003
+    membres:
+      - ROBOT-0004
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+regles:
+  - id: REGLE-0001
+    type: REGLE
+    version: 1
+    statut: actif
+    nom: "Règle de cohérence des scores"
+    description: "Les points, le prestige et le crédit social d'un robot doivent être des entiers positifs ou nuls."
+    conditions:
+      - champ: scores.points
+        operateur: ">="
+        valeur: 0
+      - champ: scores.prestige
+        operateur: ">="
+        valeur: 0
+      - champ: scores.credit_social
+        operateur: ">="
+        valeur: 0
+    action: valider
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+  - id: REGLE-0002
+    type: REGLE
+    version: 1
+    statut: actif
+    nom: "Règle de filiation"
+    description: "Tout robot déclarant un parent doit référencer un robot existant dans la même lignée."
+    conditions:
+      - champ: relations[type=descendant_de].cible
+        operateur: existe_dans
+        valeur: robots
+    action: valider
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+commandes:
+  - id: COMMANDE-0001
+    type: COMMANDE
+    version: 1
+    statut: actif
+    slash: "/entite.afficher"
+    description: "Affiche les détails d'une entité par son identifiant canonique."
+    parametres:
+      - nom: id
+        type: string
+        obligatoire: true
+        description: "Identifiant canonique de l'entité."
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+  - id: COMMANDE-0002
+    type: COMMANDE
+    version: 1
+    statut: actif
+    slash: "/entite.lister"
+    description: "Liste toutes les entités d'un type donné."
+    parametres:
+      - nom: type
+        type: string
+        obligatoire: true
+        description: "Type d'entité (ROBOT, DIEU, ACADEMIE, LIGNEE, REGLE, COMMANDE)."
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true
+
+  - id: COMMANDE-0003
+    type: COMMANDE
+    version: 1
+    statut: actif
+    slash: "/audit.exporter"
+    description: "Génère et exporte une vue d'audit complète du registre courant."
+    parametres:
+      - nom: format
+        type: string
+        obligatoire: false
+        valeur_defaut: markdown
+        description: "Format de sortie : markdown | json."
+    hub_id: HUB-001
+    proprietaire: Topbrutus
+    cree_le: "2026-03-11T23:00:00Z"
+    modifie_le: "2026-03-11T23:00:00Z"
+    relations: []
+    metadonnees:
+      bootstrap: true

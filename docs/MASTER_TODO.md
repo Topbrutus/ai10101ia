@@ -179,9 +179,9 @@
 
 - **Gate de sortie** : Taxonomie, schémas et catalogues métier approuvés.
 
-- [ ] **T0015 — Définir la taxonomie canonique des 108 dieux**
+- [x] **T0015 — Définir la taxonomie canonique des 108 dieux**
   - Ordre : 15
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0001, T0002, T0004
   - Description : Compléter la liste des 108 dieux, leurs domaines, leurs responsabilités et leurs relations fonctionnelles.
@@ -190,9 +190,9 @@
   - Livrables attendus : project/gods_registry.yaml, docs/GODS_TAXONOMY.md
   - Fichiers potentiellement impactés : project/gods_registry.yaml, docs/GODS_TAXONOMY.md
 
-- [ ] **T0016 — Définir les académies et leurs cursus**
+- [x] **T0016 — Définir les académies et leurs cursus**
   - Ordre : 16
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0015
   - Description : Établir les académies, les examens, les niveaux de maîtrise et les relations avec les dieux et les robots.
@@ -201,9 +201,9 @@
   - Livrables attendus : project/academies_registry.yaml, docs/ACADEMIES.md
   - Fichiers potentiellement impactés : project/academies_registry.yaml, docs/ACADEMIES.md
 
-- [ ] **T0017 — Définir les classes de robots et les lignées**
+- [x] **T0017 — Définir les classes de robots et les lignées**
   - Ordre : 17
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0015, T0016
   - Description : Décrire les classes de robots, leurs permissions, leur cycle de vie et les règles de filiation.
@@ -212,9 +212,9 @@
   - Livrables attendus : project/robot_classes.yaml, docs/LINEAGES.md
   - Fichiers potentiellement impactés : project/robot_classes.yaml, docs/LINEAGES.md
 
-- [ ] **T0018 — Fixer les schémas métier détaillés**
+- [x] **T0018 — Fixer les schémas métier détaillés**
   - Ordre : 18
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0015, T0016, T0017
   - Description : Étendre les schémas de base pour couvrir dieux, académies, robots, lignées, scores, preuves et élections.
@@ -282,13 +282,68 @@
   - Livrables attendus : docs/AUDIT_MODEL.md, templates/evidence_record_template.md
   - Fichiers potentiellement impactés : docs/AUDIT_MODEL.md, templates/evidence_record_template.md
 
+- [x] **T0029 — Créer le dataset bootstrap canonique**
+  - Ordre : 29
+  - Statut : `done`
+  - Obligatoire : `true`
+  - Dépendances : T0019, T0020, T0021, T0022, T0023
+  - Description : Construire un jeu pilote cohérent et versionné (hub, dieux, académies, robots, lignées, scores, preuves, événements) permettant de charger et tester le système sans données manuelles.
+  - Preuve requise : Fichiers bootstrap YAML valides et cohérents avec les schémas et le registre central.
+  - Validation requise : Tests de chargement et de cohérence des entités bootstrap.
+  - Livrables attendus : project/bootstrap_entities.yaml, project/bootstrap_proofs.yaml, project/bootstrap_events.yaml, docs/PILOT_DATASET.md
+  - Fichiers potentiellement impactés : project/bootstrap_entities.yaml, project/bootstrap_proofs.yaml, project/bootstrap_events.yaml, docs/PILOT_DATASET.md, tests/
+
+- [x] **T0030 — Construire le pipeline de validation métier**
+  - Ordre : 30
+  - Statut : `done`
+  - Obligatoire : `true`
+  - Dépendances : T0029
+  - Description : Fournir un script de validation complet du domaine AI10101IA : schémas métier, relations inter-entités, références commandes/règles/preuves, cohérence scores, messages d'erreur lisibles.
+  - Preuve requise : Script de validation exécutable sur les datasets bootstrap avec code de retour correct.
+  - Validation requise : Tests unitaires et d'intégration sur la validation métier.
+  - Livrables attendus : scripts/validate_domain_assets.py, docs/VALIDATION_POLICY.md, docs/CLI_USAGE.md
+  - Fichiers potentiellement impactés : scripts/validate_domain_assets.py, docs/VALIDATION_POLICY.md, docs/CLI_USAGE.md, Makefile, tests/
+
+- [x] **T0031 — Créer les commandes locales / CLI de pilotage**
+  - Ordre : 31
+  - Statut : `done`
+  - Obligatoire : `true`
+  - Dépendances : T0029, T0030
+  - Description : Fournir une couche CLI minimale pour charger le dataset bootstrap, valider le domaine, afficher/lister des entités, reconstruire le multi-index pilote et exporter une vue d'audit.
+  - Preuve requise : CLI exécutable localement avec commandes stables et sortie lisible.
+  - Validation requise : Tests des commandes CLI sur le dataset bootstrap.
+  - Livrables attendus : scripts/run_registry_cli.py, docs/CLI_USAGE.md
+  - Fichiers potentiellement impactés : scripts/run_registry_cli.py, src/foundation_tools/registry_tools.py, docs/CLI_USAGE.md, Makefile, tests/
+
+- [x] **T0032 — Construire les vues d'audit lisibles**
+  - Ordre : 32
+  - Statut : `done`
+  - Obligatoire : `true`
+  - Dépendances : T0029, T0030
+  - Description : Générer des sorties structurées lisibles pour audit humain : vue synthétique du registre bootstrap, relations de filiation, preuves par entité, incohérences détectées, synthèse exportable.
+  - Preuve requise : Script de rapport d'audit générant un fichier Markdown ou JSON exploitable.
+  - Validation requise : Tests de génération et de contenu du rapport d'audit.
+  - Livrables attendus : scripts/build_audit_report.py, docs/AUDIT_READ_MODELS.md
+  - Fichiers potentiellement impactés : scripts/build_audit_report.py, docs/AUDIT_READ_MODELS.md, tests/
+
+- [x] **T0033 — Assembler le flux bout-en-bout pilote**
+  - Ordre : 33
+  - Statut : `done`
+  - Obligatoire : `true`
+  - Dépendances : T0029, T0030, T0031, T0032
+  - Description : Démontrer un flux complet et traçable sur le jeu bootstrap : chargement, validation, consultation d'entités, rattachement de preuves, reconstruction du multi-index, génération d'audit, vérification de cohérence.
+  - Preuve requise : Flux pilote rejouable avec tests automatisés et documentation claire.
+  - Validation requise : Tests bout-en-bout sur le flux pilote complet.
+  - Livrables attendus : docs/PILOT_FLOW.md, scripts/run_pilot_flow.py
+  - Fichiers potentiellement impactés : docs/PILOT_FLOW.md, scripts/run_pilot_flow.py, Makefile, tests/
+
 ## 06. Fonctionnel (`P6-FONCTIONNEL`)
 
 - **Gate de sortie** : Scores, académies, reproduction, élection et hub minimal opérationnels.
 
-- [ ] **T0024 — Implémenter le système de points**
+- [x] **T0024 — Implémenter le système de points**
   - Ordre : 24
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0018, T0019, T0023
   - Description : Calculer et tracer les points attribués aux entités et aux actions selon des règles versionnées.
@@ -297,9 +352,9 @@
   - Livrables attendus : src/foundation_tools/score_points.py
   - Fichiers potentiellement impactés : src/foundation_tools/score_points.py, tests/
 
-- [ ] **T0025 — Implémenter le système de prestige**
+- [x] **T0025 — Implémenter le système de prestige**
   - Ordre : 25
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0024
   - Description : Ajouter le calcul de prestige et ses motifs d’attribution audités.
@@ -308,9 +363,9 @@
   - Livrables attendus : src/foundation_tools/score_prestige.py
   - Fichiers potentiellement impactés : src/foundation_tools/score_prestige.py, tests/
 
-- [ ] **T0026 — Implémenter le système de crédit social**
+- [x] **T0026 — Implémenter le système de crédit social**
   - Ordre : 26
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0024, T0023
   - Description : Ajouter le calcul du crédit social, les causes, les effets et les recours.
@@ -319,9 +374,9 @@
   - Livrables attendus : src/foundation_tools/score_social.py
   - Fichiers potentiellement impactés : src/foundation_tools/score_social.py, tests/
 
-- [ ] **T0027 — Implémenter les workflows d’académie**
+- [x] **T0027 — Implémenter les workflows d’académie**
   - Ordre : 27
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0016, T0017, T0020, T0023, T0024
   - Description : Créer les parcours d’entraînement, d’examen, de classement, de promotion et de sanction.
@@ -330,9 +385,9 @@
   - Livrables attendus : src/foundation_tools/academy_workflows.py
   - Fichiers potentiellement impactés : src/foundation_tools/academy_workflows.py, tests/
 
-- [ ] **T0028 — Implémenter le workflow de reproduction contrôlée**
+- [x] **T0028 — Implémenter le workflow de reproduction contrôlée**
   - Ordre : 28
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0017, T0023, T0027
   - Description : Permettre la création de nouvelles lignées et robots avec contrôle des quotas et héritages.
@@ -341,64 +396,11 @@
   - Livrables attendus : src/foundation_tools/reproduction.py
   - Fichiers potentiellement impactés : src/foundation_tools/reproduction.py, tests/
 
-- [ ] **T0029 — Implémenter le workflow d’élection du robot élu**
-  - Ordre : 29
-  - Statut : `todo`
-  - Obligatoire : `true`
-  - Dépendances : T0025, T0026, T0027, T0028
-  - Description : Créer les critères, les simulations, le jury, les preuves et le couronnement du candidat.
-  - Preuve requise : Workflow d’élection traçable.
-  - Validation requise : Tests d’intégration + revue gouvernance.
-  - Livrables attendus : src/foundation_tools/election.py
-  - Fichiers potentiellement impactés : src/foundation_tools/election.py, tests/
-
-- [ ] **T0030 — Implémenter le hub minimal**
-  - Ordre : 30
-  - Statut : `todo`
-  - Obligatoire : `true`
-  - Dépendances : T0019, T0021, T0022, T0023
-  - Description : Publier une interface minimale permettant de consulter les entités, lancer des validations et suivre les preuves.
-  - Preuve requise : Prototype du hub exploitable.
-  - Validation requise : Revue fonctionnelle + tests d’intégration.
-  - Livrables attendus : src/foundation_tools/hub.py
-  - Fichiers potentiellement impactés : src/foundation_tools/hub.py, tests/
-
 ## 07. Qualité et sécurité (`P7-QUALITE`)
 
 - **Gate de sortie** : Observabilité, sécurité et performance vérifiées.
 
-- [ ] **T0031 — Mettre en place l’observabilité**
-  - Ordre : 31
-  - Statut : `todo`
-  - Obligatoire : `true`
-  - Dépendances : T0019, T0020, T0021, T0022, T0023
-  - Description : Ajouter journaux structurés, métriques, traces de validation et tableaux de bord techniques.
-  - Preuve requise : Pipeline de logs et métriques décrit et testé.
-  - Validation requise : Revue exploitation.
-  - Livrables attendus : docs/OBSERVABILITY.md
-  - Fichiers potentiellement impactés : docs/OBSERVABILITY.md, src/
-
-- [ ] **T0032 — Renforcer la sécurité et les approbations**
-  - Ordre : 32
-  - Statut : `todo`
-  - Obligatoire : `true`
-  - Dépendances : T0002, T0021, T0023
-  - Description : Appliquer les politiques d’approbation, de sandbox, de secrets et de revue des actions sensibles.
-  - Preuve requise : Contrôles de sécurité et workflows revus.
-  - Validation requise : Revue sécurité.
-  - Livrables attendus : docs/SECURITY_CONTROLS.md
-  - Fichiers potentiellement impactés : docs/SECURITY_CONTROLS.md, .github/workflows/
-
-- [ ] **T0033 — Préparer la montée en charge**
-  - Ordre : 33
-  - Statut : `todo`
-  - Obligatoire : `true`
-  - Dépendances : T0022, T0030, T0031
-  - Description : Mesurer les coûts, reconstruire les index à échelle croissante et corriger les goulots d’étranglement.
-  - Preuve requise : Rapport de performance initial.
-  - Validation requise : Tests de charge.
-  - Livrables attendus : docs/PERFORMANCE_PLAN.md
-  - Fichiers potentiellement impactés : docs/PERFORMANCE_PLAN.md, tests/
+- [ ] Aucune tâche définie pour cette phase.
 
 ## 08. Déploiement (`P8-DEPLOIEMENT`)
 

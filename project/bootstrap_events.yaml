@@ -1,0 +1,128 @@
+version: 1
+description: >
+  Événements pilotes bootstrap AI10101IA.
+  Ces événements représentent les jalons observables du jeu pilote,
+  conformément au modèle d'audit (T0023).
+generated_for: T0029
+cree_le: "2026-03-11T23:00:00Z"
+
+evenements:
+  - id: EVT-00001
+    type: chargement_bootstrap
+    date: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    hub_id: HUB-001
+    description: "Chargement initial du dataset bootstrap — hub, dieux, académies, robots, lignées."
+    entites_concernees:
+      - HUB-001
+      - DIEU-001
+      - DIEU-002
+      - DIEU-003
+      - ACADEMIE-001
+      - ACADEMIE-002
+      - ROBOT-0001
+      - ROBOT-0002
+      - ROBOT-0003
+      - ROBOT-0004
+      - LIGNEE-001
+      - LIGNEE-002
+      - LIGNEE-003
+    preuve_id: PREUVE-00002
+    metadonnees:
+      bootstrap: true
+
+  - id: EVT-00002
+    type: validation_domaine
+    date: "2026-03-11T23:00:00Z"
+    auteur: ci_cd/validate_domain_assets
+    auteur_type: systeme
+    hub_id: HUB-001
+    description: "Validation métier complète du dataset bootstrap : schémas, relations, scores, preuves."
+    entites_concernees:
+      - HUB-001
+    preuve_id: PREUVE-00001
+    resultat: succes
+    details:
+      entites_validees: 13
+      regles_verifiees: 2
+      commandes_verifiees: 3
+      preuves_verifiees: 6
+      erreurs: 0
+    metadonnees:
+      bootstrap: true
+
+  - id: EVT-00003
+    type: execution_regle
+    date: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    hub_id: HUB-001
+    description: "Application de REGLE-0001 (cohérence des scores) sur l'ensemble des robots bootstrap."
+    entites_concernees:
+      - ROBOT-0001
+      - ROBOT-0002
+      - ROBOT-0003
+      - ROBOT-0004
+    preuve_id: PREUVE-00004
+    resultat: succes
+    metadonnees:
+      bootstrap: true
+
+  - id: EVT-00004
+    type: execution_regle
+    date: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    hub_id: HUB-001
+    description: "Application de REGLE-0002 (règle de filiation) sur ROBOT-0002."
+    entites_concernees:
+      - ROBOT-0002
+    preuve_id: PREUVE-00005
+    resultat: succes
+    metadonnees:
+      bootstrap: true
+
+  - id: EVT-00005
+    type: reconstruction_index
+    date: "2026-03-11T23:00:00Z"
+    auteur: systeme
+    auteur_type: systeme
+    hub_id: HUB-001
+    description: "Reconstruction du multi-index pilote depuis le dataset bootstrap."
+    entites_concernees:
+      - HUB-001
+    preuve_id: PREUVE-00006
+    resultat: succes
+    details:
+      entites_indexees: 13
+      index_construits:
+        - index_identite
+        - index_type
+        - index_statut
+        - index_filiation
+        - index_scores
+    metadonnees:
+      bootstrap: true
+
+  - id: EVT-00006
+    type: export_audit
+    date: "2026-03-11T23:00:00Z"
+    auteur: ci_cd/build_audit_report
+    auteur_type: systeme
+    hub_id: HUB-001
+    description: "Génération du rapport d'audit pilote sur le dataset bootstrap."
+    entites_concernees:
+      - HUB-001
+    preuve_id: PREUVE-00001
+    resultat: succes
+    details:
+      format: markdown
+      sections:
+        - synthese_registre
+        - relations_filiation
+        - preuves_par_entite
+        - incoherences
+        - bilan
+    metadonnees:
+      bootstrap: true
