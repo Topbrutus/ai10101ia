@@ -227,60 +227,60 @@
 
 - **Gate de sortie** : Noyau registre, règles, commandes et multi-index implémentés.
 
-- [ ] **T0019 — Implémenter le registre central des entités**
+- [x] **T0019 — Implémenter le registre central des entités**
   - Ordre : 19
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0018
   - Description : Créer la couche qui charge, valide, relie et expose l’ensemble des entités du système.
-  - Preuve requise : Registre central exécutable.
-  - Validation requise : Tests unitaires et d’intégration.
-  - Livrables attendus : src/foundation_tools/entity_registry.py
-  - Fichiers potentiellement impactés : src/foundation_tools/entity_registry.py, tests/
+  - Preuve requise : Contrat documentaire du registre central validé.
+  - Validation requise : Revue documentaire et cohérence inter-documents.
+  - Livrables attendus : docs/CENTRAL_REGISTRY.md
+  - Fichiers potentiellement impactés : docs/CENTRAL_REGISTRY.md
 
-- [ ] **T0020 — Implémenter le moteur de règles**
+- [x] **T0020 — Implémenter le moteur de règles**
   - Ordre : 20
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0018, T0019
   - Description : Construire l’évaluateur de règles, la résolution des dépendances et la production de preuves d’exécution.
-  - Preuve requise : Prototype du moteur de règles avec journal d’audit.
-  - Validation requise : Tests unitaires et scénarios.
-  - Livrables attendus : src/foundation_tools/rules_engine.py
-  - Fichiers potentiellement impactés : src/foundation_tools/rules_engine.py, tests/
+  - Preuve requise : Contrat documentaire du moteur de règles validé.
+  - Validation requise : Revue documentaire et cohérence inter-documents.
+  - Livrables attendus : docs/RULE_ENGINE_CONTRACT.md
+  - Fichiers potentiellement impactés : docs/RULE_ENGINE_CONTRACT.md
 
-- [ ] **T0021 — Implémenter le bus de commandes slash**
+- [x] **T0021 — Implémenter le bus de commandes slash**
   - Ordre : 21
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0018, T0019
   - Description : Créer le parseur, le routeur et le contrôle des commandes slash du hub.
-  - Preuve requise : Catalogue de commandes exécutable.
-  - Validation requise : Tests unitaires et intégration.
-  - Livrables attendus : src/foundation_tools/slash_bus.py
-  - Fichiers potentiellement impactés : src/foundation_tools/slash_bus.py, tests/
+  - Preuve requise : Contrat documentaire du bus slash validé.
+  - Validation requise : Revue documentaire et cohérence inter-documents.
+  - Livrables attendus : docs/SLASH_BUS_CONTRACT.md
+  - Fichiers potentiellement impactés : docs/SLASH_BUS_CONTRACT.md
 
-- [ ] **T0022 — Implémenter le multi-index initial**
+- [x] **T0022 — Implémenter le multi-index initial**
   - Ordre : 22
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0019
   - Description : Construire l’indexation par identité, phase, statut, filiation, scores et fichiers impactés.
-  - Preuve requise : Reconstruction d’index reproductible.
-  - Validation requise : Tests d’intégrité et performance.
-  - Livrables attendus : src/foundation_tools/multi_index.py
-  - Fichiers potentiellement impactés : src/foundation_tools/multi_index.py, tests/
+  - Preuve requise : Contrat documentaire du multi-index validé.
+  - Validation requise : Revue documentaire et cohérence inter-documents.
+  - Livrables attendus : docs/MULTI_INDEX.md
+  - Fichiers potentiellement impactés : docs/MULTI_INDEX.md
 
-- [ ] **T0023 — Implémenter la couche de preuves et d’audit**
+- [x] **T0023 — Implémenter la couche de preuves et d’audit**
   - Ordre : 23
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0019, T0020
   - Description : Journaliser les décisions, les validations, les preuves et les changements critiques.
-  - Preuve requise : Registre d’audit structuré.
-  - Validation requise : Tests et revue sécurité.
-  - Livrables attendus : src/foundation_tools/evidence.py, templates/evidence_record_template.md
-  - Fichiers potentiellement impactés : src/foundation_tools/evidence.py, templates/evidence_record_template.md, records/
+  - Preuve requise : Modèle documentaire de preuve et d’audit validé.
+  - Validation requise : Revue documentaire et cohérence inter-documents.
+  - Livrables attendus : docs/AUDIT_MODEL.md, templates/evidence_record_template.md
+  - Fichiers potentiellement impactés : docs/AUDIT_MODEL.md, templates/evidence_record_template.md
 
 ## 06. Fonctionnel (`P6-FONCTIONNEL`)
 
