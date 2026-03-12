@@ -406,16 +406,16 @@
 
 - **Gate de sortie** : Staging, sauvegardes, restauration et readiness production validés.
 
-- [ ] **T0034 — Préparer staging, sauvegarde et restauration**
+- [x] **T0034 — Préparer staging, sauvegarde et restauration**
   - Ordre : 34
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
   - Dépendances : T0030, T0031, T0032
   - Description : Documenter et automatiser l’installation locale, le staging, les sauvegardes et les restaurations.
   - Preuve requise : Runbooks et scripts d’exploitation.
   - Validation requise : Exercice de restauration.
-  - Livrables attendus : docs/OPERATIONS.md
-  - Fichiers potentiellement impactés : docs/OPERATIONS.md, Makefile, scripts/
+  - Livrables attendus : docs/OPERATIONS.md, scripts/backup_local_state.py, scripts/restore_local_state.py, tests/test_backup_restore.py
+  - Fichiers potentiellement impactés : docs/OPERATIONS.md, Makefile, scripts/backup_local_state.py, scripts/restore_local_state.py, tests/test_backup_restore.py
 
 - [ ] **T0035 — Préparer la production initiale**
   - Ordre : 35

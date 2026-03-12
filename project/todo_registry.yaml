@@ -701,15 +701,20 @@ tasks:
   - T0030
   - T0031
   - T0032
-  statut: todo
+  statut: done
   preuve_requise: Runbooks et scripts d’exploitation.
   validation_requise: Exercice de restauration.
   livrables_attendus:
   - docs/OPERATIONS.md
+  - scripts/backup_local_state.py
+  - scripts/restore_local_state.py
+  - tests/test_backup_restore.py
   fichiers_impactes:
   - docs/OPERATIONS.md
   - Makefile
-  - scripts/
+  - scripts/backup_local_state.py
+  - scripts/restore_local_state.py
+  - tests/test_backup_restore.py
 - id: T0035
   ordre: 35
   phase: P8-DEPLOIEMENT
