@@ -1,0 +1,33 @@
+name: PR Gate
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate PR body (task reference)
+        shell: bash
+        run: |
+          cat > "$RUNNER_TEMP/pr_body.txt" <<'EOF'
+          ${{ github.event.pull_request.body || '' }}
+          EOF
+          python scripts/validate_pr_body.py --body-file "$RUNNER_TEMP/pr_body.txt"
+
+      - name: Validate registry
+        run: make validate
