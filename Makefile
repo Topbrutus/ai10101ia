@@ -11,7 +11,7 @@ validate:
 validate-domain:
 	$(PYTHON) scripts/validate_domain_assets.py
 
-test:
+test: install
 	PYTHONPATH=src $(PYTHON) -m pytest -q
 
 sync-check:
