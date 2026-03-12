@@ -1,62 +1,46 @@
-## Description
+## Tâches liées
 
-<!-- Obligatoire : décrire brièvement l'objectif de cette PR -->
+<!-- Lister les identifiants de tâches (ex: T0009, T0010) -->
 
-## Tâches traitées
+- Tâches :
 
-<!-- Obligatoire : lister les identifiants de tâches (ex: T0039, T0040) -->
+## Objectif
 
-- Tâches : 
+<!-- Quel problème cette PR résout-elle ? -->
 
-## Dépendances vérifiées
+## Portée
 
-<!-- Obligatoire : confirmer que les dépendances des tâches sont satisfaites -->
+<!-- Ce qui est inclus et explicitement exclu -->
 
-- [ ] Les dépendances des tâches listées ci-dessus sont satisfaites dans le registre
+## Risques
 
-## Validations réalisées
+<!-- Risques connus ou impacts potentiels -->
 
-<!-- Obligatoire : décrire les validations effectuées -->
+## Preuves
+
+<!-- Sorties de commandes, liens vers records/, captures, etc. -->
+
+## Validations
 
 - [ ] `make validate` passe sans erreur
 - [ ] `make test` passe sans échec
 - [ ] `make validate-domain` passe sans erreur (si applicable)
 - [ ] `make sync-check` confirme la synchronisation checklist ↔ registre
 
-## Preuves
+## Impacts fichiers
 
-<!-- Obligatoire : fournir les preuves que le travail est réel -->
+<!-- Lister les fichiers touchés, surtout les fichiers critiques -->
 
-<!-- Exemples acceptables : sortie de commande, lien vers records/, rapport de test -->
+## Justification des modifications critiques
 
-## Fichiers critiques modifiés
+<!-- Obligatoire si un fichier critique est modifié -->
 
-<!-- Si vous avez modifié un fichier sous protection renforcée, justifier ici -->
+## Plan de rollback
 
-<!-- Fichiers sous protection : project/todo_registry.yaml, docs/MASTER_TODO.md,
-     docs/WORKFLOW_RULES.md, project/project_policy.yaml, .github/workflows/*.yml,
-     docs/RELEASE_GATES.md, docs/GOVERNANCE.md, .github/PULL_REQUEST_TEMPLATE.md -->
+<!-- Comment revenir en arrière en cas de besoin -->
 
-- [ ] Aucun fichier critique modifié sans justification ci-dessus
+## Déclarations obligatoires
 
-## Rollback
-
-<!-- Décrire comment annuler cette PR si nécessaire -->
-
-## Risques
-
-<!-- Identifier les risques introduits par cette PR -->
-
-## Gates de release (si applicable)
-
-<!-- Si cette PR prépare un tag ou une livraison ZIP -->
-
-- [ ] Tous les gates bloquants de `docs/RELEASE_GATES.md` sont satisfaits
-- [ ] La checklist de release a été complétée
-
-## Déclaration finale
-
-- [ ] Cette PR respecte les règles de `docs/WORKFLOW_RULES.md`
-- [ ] Cette PR respecte la politique de preuve de `docs/EVIDENCE_POLICY.md`
-- [ ] Cette PR ne démarre pas une phase non encore autorisée
-- [ ] Cette PR ne déclare pas la production active
+- [ ] Je confirme avoir lu docs/MASTER_TODO.md, project/todo_registry.yaml et docs/WORKFLOW_RULES.md.
+- [ ] Je confirme ne pas avoir contourné la checklist maître.
+- [ ] Je confirme que les dépendances des tâches référencées sont satisfaites ou explicitement levées.
