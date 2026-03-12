@@ -1,0 +1,51 @@
+name: Tâche
+description: Suivre une tâche du registre maître
+title: "[TXXXX] Brève description de la tâche"
+labels:
+  - task
+body:
+  - type: input
+    id: task_id
+    attributes:
+      label: Identifiant de tâche
+      description: Référence T0001, T0008, etc. Obligatoire.
+      placeholder: T0008
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objectif
+      description: Résumer le but de la tâche et le résultat attendu.
+      placeholder: Quel problème résoudre ? Quel livrable produire ?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Portée
+      description: Ce qui est inclus et exclus, fichiers concernés, hypothèses.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dépendances
+      description: Tâches ou prérequis à vérifier avant de commencer.
+    validations:
+      required: false
+  - type: textarea
+    id: evidences
+    attributes:
+      label: Preuves et validations prévues
+      description: Commandes, tests, rapports ou traces à produire.
+      placeholder: "Ex : make validate, make test, lien records/"
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risques / impacts
+      description: Impacts possibles, mesures de mitigation, rollback envisagé.
+    validations:
+      required: false

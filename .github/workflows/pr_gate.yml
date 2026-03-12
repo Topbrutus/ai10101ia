@@ -1,12 +1,12 @@
-name: PR Gate
+name: pr_gate
 
 on:
   pull_request:
     types: [opened, edited, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
-  validate-pr:
-    name: Validate PR
+  gate:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -15,33 +15,43 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-
-      - name: Cache pip dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Validate PR body (task reference)
+      - name: Préparer le contexte PR
         env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          printf '%s' "$PR_BODY" > "$RUNNER_TEMP/pr_body.txt"
-          if ! grep -qE '\bT[0-9]{4}\b' "$RUNNER_TEMP/pr_body.txt"; then
-            echo "Erreur : le body de la PR ne contient aucun identifiant de tâche (ex: T0009)."
-            exit 1
-          fi
-          echo "Identifiant de tâche détecté."
+          printf '%s' "$PR_BODY" > pr_body.txt
+          git fetch origin "$BASE_SHA" --depth=1
+          git fetch origin "$HEAD_SHA" --depth=1
+          git diff --name-only "$BASE_SHA" "$HEAD_SHA" > changed_files.txt
 
-      - name: Run make validate
+      - name: Valider le corps de PR
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          python scripts/validate_pr_body.py \
+            --body-file pr_body.txt \
+            --policy project/project_policy.yaml \
+            --registry project/todo_registry.yaml \
+            --changed-files-file changed_files.txt \
+            --head-ref "$HEAD_REF"
+
+      - name: make validate
         run: make validate
+
+      - name: make test
+        run: make test
