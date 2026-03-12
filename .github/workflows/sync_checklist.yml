@@ -6,6 +6,9 @@ on:
     paths:
       - "project/todo_registry.yaml"
 
+permissions:
+  contents: read
+
 jobs:
   sync:
     runs-on: ubuntu-latest
