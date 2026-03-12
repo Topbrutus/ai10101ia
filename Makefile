@@ -29,3 +29,15 @@ pilot:
 
 zip:
 	$(PYTHON) scripts/build_foundation_zip.py
+
+ops-backup:
+	$(PYTHON) scripts/backup_local_state.py
+
+ops-restore:
+ifndef BACKUP
+	$(error Variable BACKUP requise. Usage : make ops-restore BACKUP=backups/<nom> TARGET=/tmp/restore)
+endif
+ifndef TARGET
+	$(error Variable TARGET requise. Usage : make ops-restore BACKUP=backups/<nom> TARGET=/tmp/restore)
+endif
+	$(PYTHON) scripts/restore_local_state.py --backup $(BACKUP) --target $(TARGET)
