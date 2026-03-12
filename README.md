@@ -85,9 +85,9 @@ make test
 
 ## État de la fondation
 
-Le socle validé de la fondation AI10101IA couvre **T0001–T0033, T0039 et T0040** (statut `done`).
+Le socle validé de la fondation AI10101IA couvre **T0001–T0034, T0039 et T0040** (statut `done`).
 
-Les tâches **T0034–T0038** (staging, production initiale, exploitation, tests avancés, multi-hub) restent **à faire** (`todo`).
+Les tâches **T0035–T0038** (production initiale, exploitation, tests avancés, multi-hub) restent **à faire** (`todo`).
 
 Ce dépôt n'est pas en production. La phase d'industrialisation est à venir.
 

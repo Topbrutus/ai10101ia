@@ -43,9 +43,9 @@
 
 ---
 
-## État actuel de la fondation (après T0039–T0040)
+## État actuel de la fondation (après T0034)
 
-Le socle validé couvre T0001–T0033, T0039 et T0040. Les blocs T0034–T0038 restent à construire (phase d'industrialisation).
+Le socle validé couvre T0001–T0034, T0039 et T0040. Le bloc T0035–T0038 reste à construire (phase d'industrialisation).
 
 | Bloc | Tâches | État |
 |---|---|---|
@@ -58,7 +58,7 @@ Le socle validé couvre T0001–T0033, T0039 et T0040. Les blocs T0034–T0038 r
 | Dataset bootstrap | T0029–T0033 | Terminé |
 | Durcissement final | T0039 | Terminé |
 | Préparation industrialisation | T0040 | Terminé |
-| Staging, sauvegarde, restauration | T0034 | À faire |
+| Staging, sauvegarde, restauration | T0034 | Terminé |
 | Production initiale | T0035 | À faire |
 | Exploitation quotidienne | T0036 | À faire |
 | Tests avancés | T0037 | À faire |
