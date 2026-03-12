@@ -45,7 +45,7 @@
 
 ## État actuel de la fondation (après T0039–T0040)
 
-La phase de fondation est **close**. Les blocs suivants sont terminés :
+Le socle validé couvre T0001–T0033, T0039 et T0040. Les blocs T0034–T0038 restent à construire (phase d'industrialisation).
 
 | Bloc | Tâches | État |
 |---|---|---|
@@ -56,9 +56,13 @@ La phase de fondation est **close**. Les blocs suivants sont terminés :
 | Architecture technique | T0023–T0033 | Terminé |
 | Fonctionnel pilote | T0024–T0028 | Terminé |
 | Dataset bootstrap | T0029–T0033 | Terminé |
-| Packaging/staging local | T0034 préparé | Fondation close |
 | Durcissement final | T0039 | Terminé |
 | Préparation industrialisation | T0040 | Terminé |
+| Staging, sauvegarde, restauration | T0034 | À faire |
+| Production initiale | T0035 | À faire |
+| Exploitation quotidienne | T0036 | À faire |
+| Tests avancés | T0037 | À faire |
+| Gouvernance multi-hub | T0038 | À faire |
 
 ## Transition vers l'industrialisation
 

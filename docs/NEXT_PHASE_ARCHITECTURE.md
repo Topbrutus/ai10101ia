@@ -12,9 +12,9 @@ Il pose les blocs structurels sans les implémenter dans cette PR.
 ## Positionnement
 
 ```
-[ FONDATION ]  →  [ INDUSTRIALISATION ]  →  [ PRODUCTION ]
-T0001–T0040         T0034–T0038+              Post-go/no-go
-  (done)            (à construire)             (futur)
+[ FONDATION ]          →  [ INDUSTRIALISATION ]  →  [ PRODUCTION ]
+T0001–T0033, T0039–T0040    T0034–T0038+              Post-go/no-go
+  (done)                    (à construire)             (futur)
 ```
 
 La fondation est le socle. L'industrialisation construit sur ce socle.

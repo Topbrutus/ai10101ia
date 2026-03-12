@@ -11,7 +11,7 @@ qui suit la fondation. Il ne démarre pas cette phase — il la prépare proprem
 
 ## État de la fondation à la clôture
 
-### Ce qui est terminé (T0001–T0040)
+### Socle terminé (T0001–T0033, T0039, T0040)
 
 - Structure du dépôt, gouvernance, registre machine et checklist humaine
 - Contrôles GitHub : PR gate, workflows CI, instructions agents
@@ -19,9 +19,16 @@ qui suit la fondation. Il ne démarre pas cette phase — il la prépare proprem
 - Architecture technique : noyau registre, règles, commandes, multi-index
 - Fonctionnel pilote : dataset bootstrap, validation métier, CLI, audit, flux pilote
 - Hub minimal, vues opérateur, observabilité de base
-- Packaging/staging local
 - Durcissement final : gates de release, politiques de gel et rollback
 - Préparation de la suite : ce document et les documents associés
+
+### Bloc à construire (T0034–T0038)
+
+- Staging, sauvegarde et restauration (T0034)
+- Readiness production initiale (T0035)
+- Exploitation quotidienne (T0036)
+- Tests avancés (T0037)
+- Gouvernance multi-hub (T0038)
 
 ### Ce qui n'est PAS encore fait
 
