@@ -44,3 +44,26 @@ Tests unitaires et de non-régression pour les scripts critiques.
 - ne pas déposer des fichiers machine hors de `project/`
 - ne pas déposer des scripts opératoires hors de `scripts/`
 - ne pas créer de nouveaux dossiers racine sans justification documentée
+
+## Répertoires réservés pour la phase d'industrialisation
+
+Les répertoires suivants sont réservés pour la phase suivante.
+Ils ne doivent pas être créés avant que les prérequis soient satisfaits.
+
+### `/records`
+
+Archivage des preuves formelles, décisions, rapports d'audit de release.
+À créer lors de la première release officielle (T0035).
+
+### `/staging`
+
+Configuration et scripts spécifiques à l'environnement staging.
+À créer lors du déploiement staging (T0034).
+
+## Règles de placement pour la phase d'industrialisation
+
+- Tout nouveau module applicatif va dans `/src/foundation_tools/`.
+- Tout nouveau script opérationnel va dans `/scripts/`.
+- Toute nouvelle documentation va dans `/docs/`.
+- Les runbooks opérateur volumineux peuvent aller dans `/docs/runbooks/` si nécessaire.
+- Aucun répertoire nouveau à la racine sans décision formelle.

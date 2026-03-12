@@ -782,36 +782,63 @@ tasks:
 - id: T0039
   ordre: 39
   phase: P9-EVOLUTIONS
-  titre: Préparer la simulation du robot élu
-  description: Définir les scénarios de simulation, de création de hub autonome et
-    les critères de réussite du robot élu.
+  titre: Durcissement final et gates de release
+  description: Renforcer la fondation pour empêcher les contournements avant la suite
+    du projet. Définir les gates de release, la politique de gel, de rollback et la
+    procédure de validation finale avant tag ou livraison ZIP.
   obligatoire: true
   dependances:
-  - T0029
-  - T0035
-  statut: todo
-  preuve_requise: Plan de simulation du robot élu.
-  validation_requise: Revue stratégique.
+  - T0033
+  statut: done
+  preuve_requise: docs/RELEASE_GATES.md créé, docs/WORKFLOW_RULES.md renforcé, docs/VALIDATION_POLICY.md
+    et docs/EVIDENCE_POLICY.md mis à jour, .github/PULL_REQUEST_TEMPLATE.md et instructions
+    agents créés.
+  validation_requise: make validate + make test verts.
   livrables_attendus:
-  - docs/ROBOT_ELU_SIMULATION.md
+  - docs/RELEASE_GATES.md
+  - docs/VALIDATION_POLICY.md
+  - docs/EVIDENCE_POLICY.md
+  - docs/GITHUB_RULESET_SETUP.md
+  - docs/WORKFLOW_RULES.md
+  - .github/PULL_REQUEST_TEMPLATE.md
+  - .github/instructions/task-enforcement.instructions.md
+  - .github/instructions/repository-guard.instructions.md
   fichiers_impactes:
-  - docs/ROBOT_ELU_SIMULATION.md
+  - docs/RELEASE_GATES.md
+  - docs/VALIDATION_POLICY.md
+  - docs/EVIDENCE_POLICY.md
+  - docs/GITHUB_RULESET_SETUP.md
+  - docs/WORKFLOW_RULES.md
+  - .github/PULL_REQUEST_TEMPLATE.md
+  - .github/instructions/task-enforcement.instructions.md
+  - .github/instructions/repository-guard.instructions.md
 - id: T0040
   ordre: 40
   phase: P9-EVOLUTIONS
-  titre: Préparer la V2 d’industrialisation
-  description: Planifier l’extension du système, l’augmentation du volume, les sous-hubs
-    et l’automatisation supplémentaire.
+  titre: "Préparation de la suite industrielle"
+  description: "Préparer proprement la transition entre la fondation
+    et la phase d’industrialisation du projet AI10101IA.
+    Documenter la feuille de route, les blocs logiques suivants,
+    les prérequis, les limites et les dettes assumées."
   obligatoire: true
   dependances:
-  - T0036
-  - T0037
-  - T0038
   - T0039
-  statut: todo
-  preuve_requise: Feuille de route V2.
-  validation_requise: Revue stratégique et technique.
+  statut: done
+  preuve_requise: "docs/INDUSTRIALIZATION_ROADMAP.md créé,
+    docs/NEXT_PHASE_ARCHITECTURE.md créé,
+    docs/PROJECT_PHASES.md et docs/GOVERNANCE.md mis à jour."
+  validation_requise: make validate + make test verts.
   livrables_attendus:
-  - docs/V2_ROADMAP.md
+  - docs/INDUSTRIALIZATION_ROADMAP.md
+  - docs/NEXT_PHASE_ARCHITECTURE.md
+  - docs/PROJECT_PHASES.md
+  - docs/GOVERNANCE.md
+  - docs/REPOSITORY_STRUCTURE.md
+  - README.md
   fichiers_impactes:
-  - docs/V2_ROADMAP.md
+  - docs/INDUSTRIALIZATION_ROADMAP.md
+  - docs/NEXT_PHASE_ARCHITECTURE.md
+  - docs/PROJECT_PHASES.md
+  - docs/GOVERNANCE.md
+  - docs/REPOSITORY_STRUCTURE.md
+  - README.md

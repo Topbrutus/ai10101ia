@@ -40,3 +40,31 @@
 ### 09. Évolutions (`P9-EVOLUTIONS`)
 
 - **Gate de sortie** : Feuille de route, multi-hub et robot élu préparés.
+
+---
+
+## État actuel de la fondation (après T0039–T0040)
+
+La phase de fondation est **close**. Les blocs suivants sont terminés :
+
+| Bloc | Tâches | État |
+|---|---|---|
+| Cadrage | T0001–T0002 | Terminé |
+| Fondation du dépôt | T0003–T0007 | Terminé |
+| Contrôles GitHub | T0008–T0015 | Terminé |
+| Modélisation métier | T0016–T0022 | Terminé |
+| Architecture technique | T0023–T0033 | Terminé |
+| Fonctionnel pilote | T0024–T0028 | Terminé |
+| Dataset bootstrap | T0029–T0033 | Terminé |
+| Packaging/staging local | T0034 préparé | Fondation close |
+| Durcissement final | T0039 | Terminé |
+| Préparation industrialisation | T0040 | Terminé |
+
+## Transition vers l'industrialisation
+
+La phase suivante est décrite dans :
+- `docs/INDUSTRIALIZATION_ROADMAP.md` — feuille de route
+- `docs/NEXT_PHASE_ARCHITECTURE.md` — architecture cible
+- `docs/RELEASE_GATES.md` — gates de passage
+
+**Condition de passage** : tous les gates bloquants de `docs/RELEASE_GATES.md` doivent être satisfaits.

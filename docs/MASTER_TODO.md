@@ -465,24 +465,24 @@
   - Livrables attendus : docs/MULTI_HUB_GOVERNANCE.md
   - Fichiers potentiellement impactés : docs/MULTI_HUB_GOVERNANCE.md
 
-- [ ] **T0039 — Préparer la simulation du robot élu**
+- [x] **T0039 — Durcissement final et gates de release**
   - Ordre : 39
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
-  - Dépendances : T0029, T0035
-  - Description : Définir les scénarios de simulation, de création de hub autonome et les critères de réussite du robot élu.
-  - Preuve requise : Plan de simulation du robot élu.
-  - Validation requise : Revue stratégique.
-  - Livrables attendus : docs/ROBOT_ELU_SIMULATION.md
-  - Fichiers potentiellement impactés : docs/ROBOT_ELU_SIMULATION.md
+  - Dépendances : T0033
+  - Description : Renforcer la fondation pour empêcher les contournements avant la suite du projet. Définir les gates de release, la politique de gel, de rollback et la procédure de validation finale avant tag ou livraison ZIP.
+  - Preuve requise : docs/RELEASE_GATES.md créé, docs/WORKFLOW_RULES.md renforcé, docs/VALIDATION_POLICY.md et docs/EVIDENCE_POLICY.md mis à jour, .github/PULL_REQUEST_TEMPLATE.md et instructions agents créés.
+  - Validation requise : make validate + make test verts.
+  - Livrables attendus : docs/RELEASE_GATES.md, docs/VALIDATION_POLICY.md, docs/EVIDENCE_POLICY.md, docs/GITHUB_RULESET_SETUP.md, docs/WORKFLOW_RULES.md, .github/PULL_REQUEST_TEMPLATE.md, .github/instructions/task-enforcement.instructions.md, .github/instructions/repository-guard.instructions.md
+  - Fichiers potentiellement impactés : docs/RELEASE_GATES.md, docs/VALIDATION_POLICY.md, docs/EVIDENCE_POLICY.md, docs/GITHUB_RULESET_SETUP.md, docs/WORKFLOW_RULES.md, .github/PULL_REQUEST_TEMPLATE.md, .github/instructions/task-enforcement.instructions.md, .github/instructions/repository-guard.instructions.md
 
-- [ ] **T0040 — Préparer la V2 d’industrialisation**
+- [x] **T0040 — Préparation de la suite industrielle**
   - Ordre : 40
-  - Statut : `todo`
+  - Statut : `done`
   - Obligatoire : `true`
-  - Dépendances : T0036, T0037, T0038, T0039
-  - Description : Planifier l’extension du système, l’augmentation du volume, les sous-hubs et l’automatisation supplémentaire.
-  - Preuve requise : Feuille de route V2.
-  - Validation requise : Revue stratégique et technique.
-  - Livrables attendus : docs/V2_ROADMAP.md
-  - Fichiers potentiellement impactés : docs/V2_ROADMAP.md
+  - Dépendances : T0039
+  - Description : Préparer proprement la transition entre la fondation et la phase d’industrialisation du projet AI10101IA. Documenter la feuille de route, les blocs logiques suivants, les prérequis, les limites et les dettes assumées.
+  - Preuve requise : docs/INDUSTRIALIZATION_ROADMAP.md créé, docs/NEXT_PHASE_ARCHITECTURE.md créé, docs/PROJECT_PHASES.md et docs/GOVERNANCE.md mis à jour.
+  - Validation requise : make validate + make test verts.
+  - Livrables attendus : docs/INDUSTRIALIZATION_ROADMAP.md, docs/NEXT_PHASE_ARCHITECTURE.md, docs/PROJECT_PHASES.md, docs/GOVERNANCE.md, docs/REPOSITORY_STRUCTURE.md, README.md
+  - Fichiers potentiellement impactés : docs/INDUSTRIALIZATION_ROADMAP.md, docs/NEXT_PHASE_ARCHITECTURE.md, docs/PROJECT_PHASES.md, docs/GOVERNANCE.md, docs/REPOSITORY_STRUCTURE.md, README.md

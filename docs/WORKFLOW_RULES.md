@@ -46,3 +46,29 @@
 ## Exceptions
 
 Les exceptions doivent être documentées via une issue de type décision et une PR justifiée.
+
+## Gates de release et durcissement final
+
+### Avant tout merge sur `main`
+
+- `make validate` doit passer sans erreur
+- `make test` doit passer sans échec
+- La PR doit référencer au moins un identifiant de tâche valide
+- Les dépendances des tâches citées doivent être satisfaites
+
+### Avant tout tag ou livraison ZIP
+
+- Suivre la procédure complète définie dans `docs/RELEASE_GATES.md`
+- Toutes les cases bloquantes de la checklist de release doivent être cochées
+
+### Gel temporaire
+
+- Si `make validate` échoue sur `main`, aucun nouveau merge n'est autorisé
+- Appliquer la procédure de gel et rollback de `docs/RELEASE_GATES.md`
+
+## Transition vers la phase d'industrialisation
+
+- La fondation doit être complète (T0001–T0040 tous `done`) avant d'engager l'industrialisation
+- La feuille de route de la phase suivante est dans `docs/INDUSTRIALIZATION_ROADMAP.md`
+- L'architecture cible est dans `docs/NEXT_PHASE_ARCHITECTURE.md`
+- Ne pas démarrer un bloc d'industrialisation sans en avoir validé les prérequis

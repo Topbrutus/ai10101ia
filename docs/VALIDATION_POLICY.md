@@ -53,3 +53,28 @@ Retourne 0 si tout est valide, 1 sinon avec messages d'erreur explicites sur std
 | `project/bootstrap_entities.yaml` | Structure, relations, scores |
 | `project/bootstrap_proofs.yaml` | Format, types, références |
 | `project/bootstrap_events.yaml` | Format, références, cohérence |
+
+## Validation de release (T0039)
+
+Avant tout tag de release ou livraison ZIP, une validation complète est requise.
+
+### Gates bloquants
+
+```bash
+make validate          # registre + synchronisation checklist
+make test              # tests unitaires
+make validate-domain   # assets métier bootstrap
+```
+
+Tous doivent retourner 0. Tout code de retour non nul bloque la release.
+
+### Critères additionnels
+
+- Toutes les tâches obligatoires concernées ont le statut `done`
+- La PR de release a été relue par au moins un mainteneur
+- Les preuves de validation sont référencées dans la PR
+- Aucune divergence entre `todo_registry.yaml` et `MASTER_TODO.md`
+
+### Procédure complète
+
+Voir `docs/RELEASE_GATES.md` pour la checklist de release complète et la procédure pas à pas.

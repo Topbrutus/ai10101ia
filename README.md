@@ -82,3 +82,15 @@ pip install -r requirements.txt
 make validate
 make test
 ```
+
+## État de la fondation
+
+La **fondation AI10101IA est close** (T0001–T0040 terminés).
+
+Ce dépôt n'est pas en production. La phase d'industrialisation est à venir.
+
+### Prochaines étapes
+
+- Voir `docs/INDUSTRIALIZATION_ROADMAP.md` pour la feuille de route.
+- Voir `docs/RELEASE_GATES.md` pour les conditions de passage à la phase suivante.
+- Voir `docs/NEXT_PHASE_ARCHITECTURE.md` pour l'architecture cible.
