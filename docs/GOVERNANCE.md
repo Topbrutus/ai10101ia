@@ -70,3 +70,26 @@ Autorisée seulement si les impacts sur les dépendances sont explicitement docu
 ## Décision formelle requise
 
 Une décision formelle doit exister si l’on touche à l’ordre, au caractère obligatoire ou à la politique du dépôt.
+
+## Règles de transition vers l'industrialisation (T0040)
+
+### Conditions d'ouverture de la phase d'industrialisation
+
+La phase d'industrialisation ne peut être engagée que si :
+1. T0001–T0040 ont tous le statut `done` dans `project/todo_registry.yaml`.
+2. `make validate` + `make test` + `make validate-domain` passent tous.
+3. Un tag de fondation a été posé (`make zip` ou tag Git).
+
+### Ce qui change dans la gouvernance à l'industrialisation
+
+- Les fichiers critiques restent sous protection renforcée.
+- Les nouveaux blocs de tâches sont ajoutés au registre sans renuméroter.
+- La politique de preuve et la politique de validation restent inchangées.
+- Les décisions formelles requises restent sous arbitrage du mainteneur principal.
+
+### Ce qui ne change pas
+
+- La langue française pour tous les documents.
+- Le principe de modifications minimales et traçables.
+- L'interdiction de contournement des workflows CI.
+- L'obligation de référencer une tâche dans chaque PR.
