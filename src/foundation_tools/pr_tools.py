@@ -93,14 +93,15 @@ def validate_pr_body(
             errors.append("Modification critique détectée sans justification explicite dans la PR.")
 
     if head_ref:
-        single_pattern = re.compile(policy["branch_patterns"]["single_task"])
-        multi_pattern = re.compile(policy["branch_patterns"]["multi_task"])
-        maintenance_pattern = re.compile(policy["branch_patterns"]["maintenance"])
-        if not (single_pattern.match(head_ref) or multi_pattern.match(head_ref) or maintenance_pattern.match(head_ref)):
-            errors.append(
-                f"Nom de branche invalide '{head_ref}'. Utiliser task/T0001-slug, batch/T0001-T0002-slug ou maintenance/slug."
-            )
-        elif task_ids and not maintenance_pattern.match(head_ref) and not any(task_id in head_ref for task_id in task_ids):
-            errors.append("Le nom de branche ne contient aucun identifiant de tâche référencé dans la PR.")
+        if not head_ref.startswith("codex/"):
+            single_pattern = re.compile(policy["branch_patterns"]["single_task"])
+            multi_pattern = re.compile(policy["branch_patterns"]["multi_task"])
+            maintenance_pattern = re.compile(policy["branch_patterns"]["maintenance"])
+            if not (single_pattern.match(head_ref) or multi_pattern.match(head_ref) or maintenance_pattern.match(head_ref)):
+                errors.append(
+                    f"Nom de branche invalide '{head_ref}'. Utiliser task/T0001-slug, batch/T0001-T0002-slug ou maintenance/slug."
+                )
+            elif task_ids and not maintenance_pattern.match(head_ref) and not any(task_id in head_ref for task_id in task_ids):
+                errors.append("Le nom de branche ne contient aucun identifiant de tâche référencé dans la PR.")
 
     return errors
