@@ -1,0 +1,47 @@
+name: PR Gate
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  validate-pr:
+    name: Validate PR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate PR body (task reference)
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          printf '%s' "$PR_BODY" > "$RUNNER_TEMP/pr_body.txt"
+          if ! grep -qE '\bT[0-9]{4}\b' "$RUNNER_TEMP/pr_body.txt"; then
+            echo "Erreur : le body de la PR ne contient aucun identifiant de tâche (ex: T0009)."
+            exit 1
+          fi
+          echo "Identifiant de tâche détecté."
+
+      - name: Run make validate
+        run: make validate
