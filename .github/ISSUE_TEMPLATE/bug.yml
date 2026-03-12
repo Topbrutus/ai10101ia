@@ -1,0 +1,60 @@
+name: Bug
+description: Signaler un comportement incorrect
+title: "[BUG] Résumé du problème"
+labels:
+  - bug
+body:
+  - type: input
+    id: task_ref
+    attributes:
+      label: Tâche liée (si applicable)
+      description: Référence T000X si le bug est lié à une tâche spécifique.
+      placeholder: T0009
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: Résumé
+      description: Description concise du bug observé.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+      description: Liste numérotée des étapes permettant de reproduire l’anomalie.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportement attendu
+      description: Ce qui aurait dû se produire.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportement observé
+      description: Ce qui s’est réellement produit (logs, screenshots).
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Preuves / logs
+      description: Sorties de commandes, captures ou fichiers joints utiles au diagnostic.
+    validations:
+      required: false
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact et sévérité
+      description: Portée de l’impact, composants touchés, urgence estimée.
+    validations:
+      required: true

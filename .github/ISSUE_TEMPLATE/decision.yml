@@ -1,0 +1,42 @@
+name: Décision
+description: Documenter une décision formelle ou un arbitrage
+title: "[DECISION] Sujet à arbitrer"
+labels:
+  - decision
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte
+      description: Situation actuelle, problème à résoudre, tâches concernées.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options envisagées
+      description: Lister les alternatives avec avantages et inconvénients.
+      placeholder: "- Option A : ...\n- Option B : ..."
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Décision proposée
+      description: Choix recommandé et justification.
+    validations:
+      required: true
+  - type: textarea
+    id: impacts
+    attributes:
+      label: Impacts
+      description: Risques, périmètre affecté, fichiers critiques ou policies à toucher.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Preuves et validations prévues
+      description: Tests, validations ou consultations nécessaires pour entériner la décision.
+    validations:
+      required: false

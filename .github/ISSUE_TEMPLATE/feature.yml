@@ -1,0 +1,50 @@
+name: Feature
+description: Proposer une nouvelle fonctionnalité
+title: "[FEATURE] Résumé de la demande"
+labels:
+  - enhancement
+body:
+  - type: input
+    id: task_ref
+    attributes:
+      label: Tâche liée (si applicable)
+      description: Référence T000X si la demande correspond à une tâche existante.
+      placeholder: T0010
+    validations:
+      required: false
+  - type: textarea
+    id: goal
+    attributes:
+      label: Objectif
+      description: Quel problème résoudre ? Quel bénéfice attendu ?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Portée et non-portée
+      description: Ce qui est inclus, exclusions prévues, composants impactés.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critères d’acceptation
+      description: Conditions vérifiables pour considérer la fonctionnalité terminée.
+    validations:
+      required: true
+  - type: textarea
+    id: validation_plan
+    attributes:
+      label: Plan de validation
+      description: Tests, commandes ou preuves envisagés.
+      placeholder: "Ex : make validate, make test, scénario manuel"
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risques / impacts
+      description: Régressions possibles, dépendances, data model concerné.
+    validations:
+      required: false
