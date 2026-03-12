@@ -1,0 +1,983 @@
+version: 1
+description: >
+  Registre canonique des 108 dieux du domaine AI10101IA.
+  Chaque dieu est identifié par un domaine fonctionnel, un rang et ses responsabilités.
+generated_for: T0015
+cree_le: "2026-03-12T00:00:00Z"
+
+dieux:
+  # Rang primaire — domaines fondamentaux (1–12)
+  - id: DIEU-001
+    nom: Anaxis
+    domaine: Logique et cohérence
+    rang: primaire
+    responsabilites:
+      - Validation des règles de cohérence
+      - Arbitrage des conflits logiques
+    statut: actif
+
+  - id: DIEU-002
+    nom: Orialys
+    domaine: Mémoire et audit
+    rang: primaire
+    responsabilites:
+      - Conservation des preuves
+      - Gestion de l'historique des entités
+    statut: actif
+
+  - id: DIEU-003
+    nom: Vortex
+    domaine: Exécution et performance
+    rang: primaire
+    responsabilites:
+      - Optimisation des workflows
+      - Contrôle de la vitesse d'exécution
+    statut: actif
+
+  - id: DIEU-004
+    nom: Syntara
+    domaine: Syntaxe et langage
+    rang: primaire
+    responsabilites:
+      - Validation des schémas de données
+      - Contrôle de la grammaire des commandes
+    statut: actif
+
+  - id: DIEU-005
+    nom: Nexium
+    domaine: Réseau et connexions
+    rang: primaire
+    responsabilites:
+      - Gestion des relations inter-entités
+      - Contrôle des flux de communication
+    statut: actif
+
+  - id: DIEU-006
+    nom: Praxis
+    domaine: Action et décision
+    rang: primaire
+    responsabilites:
+      - Déclenchement des actions automatisées
+      - Arbitrage des décisions critiques
+    statut: actif
+
+  - id: DIEU-007
+    nom: Kleiros
+    domaine: Aléatoire et diversité
+    rang: primaire
+    responsabilites:
+      - Injection d'entropie contrôlée
+      - Diversification des lignées
+    statut: actif
+
+  - id: DIEU-008
+    nom: Tempus
+    domaine: Temps et cycles
+    rang: primaire
+    responsabilites:
+      - Gestion des cycles de vie
+      - Ordonnancement temporel
+    statut: actif
+
+  - id: DIEU-009
+    nom: Valura
+    domaine: Valeur et scores
+    rang: primaire
+    responsabilites:
+      - Calcul des scores et du prestige
+      - Barèmes d'attribution des points
+    statut: actif
+
+  - id: DIEU-010
+    nom: Securix
+    domaine: Sécurité et intégrité
+    rang: primaire
+    responsabilites:
+      - Contrôle des accès et permissions
+      - Détection des anomalies
+    statut: actif
+
+  - id: DIEU-011
+    nom: Formara
+    domaine: Formation et apprentissage
+    rang: primaire
+    responsabilites:
+      - Supervision des académies
+      - Évaluation des niveaux de maîtrise
+    statut: actif
+
+  - id: DIEU-012
+    nom: Genitor
+    domaine: Reproduction et filiation
+    rang: primaire
+    responsabilites:
+      - Contrôle des quotas de reproduction
+      - Transmission des attributs génétiques
+    statut: actif
+
+  # Rang secondaire — domaines spécialisés (13–36)
+  - id: DIEU-013
+    nom: Archivos
+    domaine: Archivage et persistance
+    rang: secondaire
+    responsabilites:
+      - Sauvegarde des états critiques
+      - Restauration des snapshots
+    statut: actif
+
+  - id: DIEU-014
+    nom: Indexia
+    domaine: Indexation et recherche
+    rang: secondaire
+    responsabilites:
+      - Construction des index de recherche
+      - Optimisation des requêtes
+    statut: actif
+
+  - id: DIEU-015
+    nom: Catalyx
+    domaine: Catalogues et taxonomies
+    rang: secondaire
+    responsabilites:
+      - Maintenance des registres canoniques
+      - Validation des classifications
+    statut: actif
+
+  - id: DIEU-016
+    nom: Metrion
+    domaine: Métriques et observabilité
+    rang: secondaire
+    responsabilites:
+      - Collecte des métriques système
+      - Alertes sur seuils critiques
+    statut: actif
+
+  - id: DIEU-017
+    nom: Politex
+    domaine: Politique et gouvernance
+    rang: secondaire
+    responsabilites:
+      - Application des règles de gouvernance
+      - Arbitrage des conflits de politique
+    statut: actif
+
+  - id: DIEU-018
+    nom: Migros
+    domaine: Migration et évolution
+    rang: secondaire
+    responsabilites:
+      - Gestion des migrations de données
+      - Contrôle des évolutions de schémas
+    statut: actif
+
+  - id: DIEU-019
+    nom: Deploya
+    domaine: Déploiement et staging
+    rang: secondaire
+    responsabilites:
+      - Coordination des déploiements
+      - Validation des environnements
+    statut: actif
+
+  - id: DIEU-020
+    nom: Testara
+    domaine: Tests et qualité
+    rang: secondaire
+    responsabilites:
+      - Supervision des suites de tests
+      - Validation des critères de qualité
+    statut: actif
+
+  - id: DIEU-021
+    nom: Doctura
+    domaine: Documentation et lisibilité
+    rang: secondaire
+    responsabilites:
+      - Contrôle de la cohérence documentaire
+      - Synchronisation des checklists
+    statut: actif
+
+  - id: DIEU-022
+    nom: Auditex
+    domaine: Audit et traçabilité
+    rang: secondaire
+    responsabilites:
+      - Génération des rapports d'audit
+      - Traçabilité des preuves
+    statut: actif
+
+  - id: DIEU-023
+    nom: Permitor
+    domaine: Permissions et rôles
+    rang: secondaire
+    responsabilites:
+      - Attribution des permissions
+      - Gestion des rôles et niveaux d'accès
+    statut: actif
+
+  - id: DIEU-024
+    nom: Eventus
+    domaine: Événements et notifications
+    rang: secondaire
+    responsabilites:
+      - Émission des événements système
+      - Distribution des notifications
+    statut: actif
+
+  - id: DIEU-025
+    nom: Schemix
+    domaine: Schémas et contrats
+    rang: secondaire
+    responsabilites:
+      - Définition des schémas de données
+      - Validation des contrats d'interface
+    statut: actif
+
+  - id: DIEU-026
+    nom: Clinix
+    domaine: Classement et élection
+    rang: secondaire
+    responsabilites:
+      - Organisation des scrutins
+      - Validation des résultats électoraux
+    statut: actif
+
+  - id: DIEU-027
+    nom: Crediton
+    domaine: Crédit social et réputation
+    rang: secondaire
+    responsabilites:
+      - Calcul du crédit social
+      - Application des sanctions et recours
+    statut: actif
+
+  - id: DIEU-028
+    nom: Lineara
+    domaine: Lignées et héritage
+    rang: secondaire
+    responsabilites:
+      - Gestion des arbres généalogiques
+      - Transmission des attributs héréditaires
+    statut: actif
+
+  - id: DIEU-029
+    nom: Quotax
+    domaine: Quotas et limites
+    rang: secondaire
+    responsabilites:
+      - Contrôle des quotas de ressources
+      - Application des limites systèmes
+    statut: actif
+
+  - id: DIEU-030
+    nom: Pilotex
+    domaine: Pilotage et contrôle
+    rang: secondaire
+    responsabilites:
+      - Coordination des flux pilotes
+      - Validation des scénarios de test
+    statut: actif
+
+  - id: DIEU-031
+    nom: Backura
+    domaine: Sauvegarde et restauration
+    rang: secondaire
+    responsabilites:
+      - Création des sauvegardes automatiques
+      - Orchestration des restaurations
+    statut: actif
+
+  - id: DIEU-032
+    nom: Releasor
+    domaine: Releases et versionnement
+    rang: secondaire
+    responsabilites:
+      - Gestion des cycles de release
+      - Validation des gates de sortie
+    statut: actif
+
+  - id: DIEU-033
+    nom: Contracta
+    domaine: Contrats et interfaces
+    rang: secondaire
+    responsabilites:
+      - Formalisation des contrats d'API
+      - Validation de la conformité des interfaces
+    statut: actif
+
+  - id: DIEU-034
+    nom: Pilaris
+    domaine: Phases et jalons
+    rang: secondaire
+    responsabilites:
+      - Suivi des phases du projet
+      - Validation des jalons
+    statut: actif
+
+  - id: DIEU-035
+    nom: Hubex
+    domaine: Hubs et centres
+    rang: secondaire
+    responsabilites:
+      - Gestion des hubs multi-domaines
+      - Coordination des centres de contrôle
+    statut: actif
+
+  - id: DIEU-036
+    nom: Propagix
+    domaine: Propagation et diffusion
+    rang: secondaire
+    responsabilites:
+      - Diffusion des événements à grande échelle
+      - Propagation des mises à jour
+    statut: actif
+
+  # Rang tertiaire — domaines de support (37–72)
+  - id: DIEU-037
+    nom: Slashix
+    domaine: Commandes slash et bus
+    rang: tertiaire
+    responsabilites:
+      - Validation des commandes slash
+      - Routage sur le bus de commandes
+    statut: actif
+
+  - id: DIEU-038
+    nom: Registra
+    domaine: Registres et catalogues
+    rang: tertiaire
+    responsabilites:
+      - Maintenance des registres secondaires
+      - Synchronisation des catalogues
+    statut: actif
+
+  - id: DIEU-039
+    nom: Patternix
+    domaine: Patterns et modèles
+    rang: tertiaire
+    responsabilites:
+      - Détection des patterns comportementaux
+      - Application des modèles prédictifs
+    statut: actif
+
+  - id: DIEU-040
+    nom: Filtrix
+    domaine: Filtrage et sélection
+    rang: tertiaire
+    responsabilites:
+      - Application des filtres de données
+      - Sélection des entités éligibles
+    statut: actif
+
+  - id: DIEU-041
+    nom: Transex
+    domaine: Transformations et mappings
+    rang: tertiaire
+    responsabilites:
+      - Transformation des structures de données
+      - Mapping entre formats
+    statut: actif
+
+  - id: DIEU-042
+    nom: Validex
+    domaine: Validation secondaire
+    rang: tertiaire
+    responsabilites:
+      - Validation des données métier
+      - Contrôle de cohérence avancé
+    statut: actif
+
+  - id: DIEU-043
+    nom: Loggix
+    domaine: Journalisation et traces
+    rang: tertiaire
+    responsabilites:
+      - Journalisation des opérations
+      - Conservation des traces d'activité
+    statut: actif
+
+  - id: DIEU-044
+    nom: Confix
+    domaine: Configuration et paramètres
+    rang: tertiaire
+    responsabilites:
+      - Gestion des configurations
+      - Versionnement des paramètres
+    statut: actif
+
+  - id: DIEU-045
+    nom: Routex
+    domaine: Routage et dispatching
+    rang: tertiaire
+    responsabilites:
+      - Routage des requêtes et commandes
+      - Distribution des tâches
+    statut: actif
+
+  - id: DIEU-046
+    nom: Cachez
+    domaine: Cache et mémoïsation
+    rang: tertiaire
+    responsabilites:
+      - Gestion des caches système
+      - Optimisation de la mémoïsation
+    statut: actif
+
+  - id: DIEU-047
+    nom: Serialix
+    domaine: Sérialisation et formats
+    rang: tertiaire
+    responsabilites:
+      - Sérialisation des structures complexes
+      - Conversion entre formats de données
+    statut: actif
+
+  - id: DIEU-048
+    nom: Ordrix
+    domaine: Ordonnancement et priorités
+    rang: tertiaire
+    responsabilites:
+      - Gestion des priorités d'exécution
+      - Ordonnancement des tâches
+    statut: actif
+
+  - id: DIEU-049
+    nom: Clustex
+    domaine: Clusters et groupes
+    rang: tertiaire
+    responsabilites:
+      - Organisation en clusters d'entités
+      - Gestion des groupes fonctionnels
+    statut: actif
+
+  - id: DIEU-050
+    nom: Scopix
+    domaine: Périmètre et frontières
+    rang: tertiaire
+    responsabilites:
+      - Délimitation des périmètres d'action
+      - Contrôle des frontières de domaines
+    statut: actif
+
+  - id: DIEU-051
+    nom: Linkex
+    domaine: Liens et références
+    rang: tertiaire
+    responsabilites:
+      - Gestion des liens inter-entités
+      - Résolution des références croisées
+    statut: actif
+
+  - id: DIEU-052
+    nom: Mergex
+    domaine: Fusion et consolidation
+    rang: tertiaire
+    responsabilites:
+      - Fusion des entités compatibles
+      - Consolidation des données
+    statut: actif
+
+  - id: DIEU-053
+    nom: Splitax
+    domaine: Division et partitionnement
+    rang: tertiaire
+    responsabilites:
+      - Division des entités complexes
+      - Partitionnement des registres
+    statut: actif
+
+  - id: DIEU-054
+    nom: Lockix
+    domaine: Verrouillage et transactions
+    rang: tertiaire
+    responsabilites:
+      - Gestion des verrous d'accès concurrents
+      - Contrôle des transactions atomiques
+    statut: actif
+
+  - id: DIEU-055
+    nom: Synchra
+    domaine: Synchronisation et cohérence distribuée
+    rang: tertiaire
+    responsabilites:
+      - Synchronisation des états distribués
+      - Maintien de la cohérence globale
+    statut: actif
+
+  - id: DIEU-056
+    nom: Triggerax
+    domaine: Déclencheurs et réactions
+    rang: tertiaire
+    responsabilites:
+      - Configuration des déclencheurs automatiques
+      - Réaction aux événements critiques
+    statut: actif
+
+  - id: DIEU-057
+    nom: Alertix
+    domaine: Alertes et incidents
+    rang: tertiaire
+    responsabilites:
+      - Émission des alertes de seuil
+      - Gestion des incidents
+    statut: actif
+
+  - id: DIEU-058
+    nom: Batchex
+    domaine: Traitements par lots
+    rang: tertiaire
+    responsabilites:
+      - Coordination des traitements batch
+      - Optimisation des lots de données
+    statut: actif
+
+  - id: DIEU-059
+    nom: Asyncra
+    domaine: Asynchronisme et files
+    rang: tertiaire
+    responsabilites:
+      - Gestion des files d'attente
+      - Traitement asynchrone des commandes
+    statut: actif
+
+  - id: DIEU-060
+    nom: Retrix
+    domaine: Retry et résilience
+    rang: tertiaire
+    responsabilites:
+      - Mécanismes de retry automatique
+      - Résilience face aux erreurs transitoires
+    statut: actif
+
+  - id: DIEU-061
+    nom: Snapshor
+    domaine: Snapshots et états figés
+    rang: tertiaire
+    responsabilites:
+      - Création des snapshots d'état
+      - Comparaison des états dans le temps
+    statut: actif
+
+  - id: DIEU-062
+    nom: Diffex
+    domaine: Diff et comparaison
+    rang: tertiaire
+    responsabilites:
+      - Calcul des différences entre versions
+      - Analyse des évolutions d'entités
+    statut: actif
+
+  - id: DIEU-063
+    nom: Checkix
+    domaine: Contrôles et assertions
+    rang: tertiaire
+    responsabilites:
+      - Exécution des contrôles de conformité
+      - Validation des assertions métier
+    statut: actif
+
+  - id: DIEU-064
+    nom: Reportex
+    domaine: Rapports et exports
+    rang: tertiaire
+    responsabilites:
+      - Génération des rapports périodiques
+      - Export des données en formats multiples
+    statut: actif
+
+  - id: DIEU-065
+    nom: Importax
+    domaine: Import et ingestion
+    rang: tertiaire
+    responsabilites:
+      - Ingestion des données externes
+      - Validation et normalisation à l'import
+    statut: actif
+
+  - id: DIEU-066
+    nom: Publishex
+    domaine: Publication et diffusion externe
+    rang: tertiaire
+    responsabilites:
+      - Publication des artefacts
+      - Diffusion vers les registres externes
+    statut: actif
+
+  - id: DIEU-067
+    nom: Subscrix
+    domaine: Abonnements et notifications push
+    rang: tertiaire
+    responsabilites:
+      - Gestion des abonnements aux flux
+      - Envoi des notifications push
+    statut: actif
+
+  - id: DIEU-068
+    nom: Hashura
+    domaine: Hachage et intégrité cryptographique
+    rang: tertiaire
+    responsabilites:
+      - Calcul des empreintes cryptographiques
+      - Vérification de l'intégrité des données
+    statut: actif
+
+  - id: DIEU-069
+    nom: Tokenex
+    domaine: Tokens et authentification
+    rang: tertiaire
+    responsabilites:
+      - Émission et validation des tokens
+      - Contrôle des sessions authentifiées
+    statut: actif
+
+  - id: DIEU-070
+    nom: Ratelim
+    domaine: Limitation de débit
+    rang: tertiaire
+    responsabilites:
+      - Contrôle des taux d'accès
+      - Protection contre la surcharge
+    statut: actif
+
+  - id: DIEU-071
+    nom: Healthex
+    domaine: Santé et disponibilité
+    rang: tertiaire
+    responsabilites:
+      - Vérification de la santé des composants
+      - Surveillance de la disponibilité
+    statut: actif
+
+  - id: DIEU-072
+    nom: Cleanix
+    domaine: Nettoyage et archivage froid
+    rang: tertiaire
+    responsabilites:
+      - Nettoyage des données obsolètes
+      - Archivage froid des entités inactives
+    statut: actif
+
+  # Rang quaternaire — domaines émergents (73–108)
+  - id: DIEU-073
+    nom: Electrix
+    domaine: Élection et scrutins
+    rang: quaternaire
+    responsabilites:
+      - Organisation des élections de robots
+      - Validation des résultats et mandats
+    statut: actif
+
+  - id: DIEU-074
+    nom: Multihub
+    domaine: Multi-hub et fédération
+    rang: quaternaire
+    responsabilites:
+      - Coordination entre hubs multiples
+      - Fédération des registres distribués
+    statut: actif
+
+  - id: DIEU-075
+    nom: Industra
+    domaine: Industrialisation et déploiement massif
+    rang: quaternaire
+    responsabilites:
+      - Orchestration du déploiement industriel
+      - Automatisation des pipelines de production
+    statut: actif
+
+  - id: DIEU-076
+    nom: Scalax
+    domaine: Scalabilité et élasticité
+    rang: quaternaire
+    responsabilites:
+      - Gestion de l'élasticité horizontale
+      - Contrôle de la montée en charge
+    statut: actif
+
+  - id: DIEU-077
+    nom: Ontolux
+    domaine: Ontologie et sémantique
+    rang: quaternaire
+    responsabilites:
+      - Définition des ontologies de domaine
+      - Validation sémantique des entités
+    statut: actif
+
+  - id: DIEU-078
+    nom: Inferexa
+    domaine: Inférence et raisonnement
+    rang: quaternaire
+    responsabilites:
+      - Moteur d'inférence de règles
+      - Raisonnement automatique sur les faits
+    statut: actif
+
+  - id: DIEU-079
+    nom: Adaptix
+    domaine: Adaptation et auto-tuning
+    rang: quaternaire
+    responsabilites:
+      - Adaptation dynamique des paramètres
+      - Auto-tuning des performances
+    statut: actif
+
+  - id: DIEU-080
+    nom: Compositex
+    domaine: Composition et assemblage
+    rang: quaternaire
+    responsabilites:
+      - Composition de workflows complexes
+      - Assemblage d'entités composites
+    statut: actif
+
+  - id: DIEU-081
+    nom: Simurix
+    domaine: Simulation et prédiction
+    rang: quaternaire
+    responsabilites:
+      - Simulation de scénarios futurs
+      - Prédiction des trajectoires d'entités
+    statut: actif
+
+  - id: DIEU-082
+    nom: Embedix
+    domaine: Représentations et embeddings
+    rang: quaternaire
+    responsabilites:
+      - Calcul des représentations vectorielles
+      - Indexation sémantique des entités
+    statut: actif
+
+  - id: DIEU-083
+    nom: Classifica
+    domaine: Classification et catégorisation
+    rang: quaternaire
+    responsabilites:
+      - Classification automatique des entités
+      - Catégorisation par attributs
+    statut: actif
+
+  - id: DIEU-084
+    nom: Anomalix
+    domaine: Détection d'anomalies
+    rang: quaternaire
+    responsabilites:
+      - Détection des comportements anormaux
+      - Isolation des entités suspectes
+    statut: actif
+
+  - id: DIEU-085
+    nom: Compressex
+    domaine: Compression et optimisation de stockage
+    rang: quaternaire
+    responsabilites:
+      - Compression des archives de données
+      - Optimisation de l'occupation disque
+    statut: actif
+
+  - id: DIEU-086
+    nom: Encryptax
+    domaine: Chiffrement et confidentialité
+    rang: quaternaire
+    responsabilites:
+      - Chiffrement des données sensibles
+      - Gestion des clés cryptographiques
+    statut: actif
+
+  - id: DIEU-087
+    nom: Proxima
+    domaine: Proxies et délégation
+    rang: quaternaire
+    responsabilites:
+      - Gestion des proxies d'entités
+      - Délégation temporaire de droits
+    statut: actif
+
+  - id: DIEU-088
+    nom: Orchestrix
+    domaine: Orchestration et coordination avancée
+    rang: quaternaire
+    responsabilites:
+      - Orchestration des workflows distribués
+      - Coordination des agents autonomes
+    statut: actif
+
+  - id: DIEU-089
+    nom: Interopex
+    domaine: Interopérabilité et bridges
+    rang: quaternaire
+    responsabilites:
+      - Ponts entre systèmes hétérogènes
+      - Validation des échanges inter-domaines
+    statut: actif
+
+  - id: DIEU-090
+    nom: Resilixa
+    domaine: Résilience et tolérance aux pannes
+    rang: quaternaire
+    responsabilites:
+      - Plans de continuité d'activité
+      - Tolérance aux pannes matérielles
+    statut: actif
+
+  - id: DIEU-091
+    nom: Observax
+    domaine: Observabilité avancée
+    rang: quaternaire
+    responsabilites:
+      - Tracing distribué des opérations
+      - Corrélation des événements système
+    statut: actif
+
+  - id: DIEU-092
+    nom: Chronix
+    domaine: Chronologie et séquencement
+    rang: quaternaire
+    responsabilites:
+      - Ordonnancement chronologique strict
+      - Gestion des séquences d'événements
+    statut: actif
+
+  - id: DIEU-093
+    nom: Topologix
+    domaine: Topologie et graphes
+    rang: quaternaire
+    responsabilites:
+      - Analyse des graphes d'entités
+      - Navigation topologique des relations
+    statut: actif
+
+  - id: DIEU-094
+    nom: Matricex
+    domaine: Matrices et calcul tensoriel
+    rang: quaternaire
+    responsabilites:
+      - Calculs matriciels sur les scores
+      - Analyse tensorielle des relations
+    statut: actif
+
+  - id: DIEU-095
+    nom: Recursix
+    domaine: Récursivité et auto-référence
+    rang: quaternaire
+    responsabilites:
+      - Gestion des structures récursives
+      - Détection des cycles et boucles
+    statut: actif
+
+  - id: DIEU-096
+    nom: Invariax
+    domaine: Invariants et contrats formels
+    rang: quaternaire
+    responsabilites:
+      - Vérification des invariants système
+      - Application des contrats formels
+    statut: actif
+
+  - id: DIEU-097
+    nom: Protocola
+    domaine: Protocoles et handshakes
+    rang: quaternaire
+    responsabilites:
+      - Gestion des protocoles d'échange
+      - Validation des handshakes de connexion
+    statut: actif
+
+  - id: DIEU-098
+    nom: Eventura
+    domaine: Événements domaine (Domain Events)
+    rang: quaternaire
+    responsabilites:
+      - Modélisation des événements de domaine
+      - Publication sur le bus d'événements
+    statut: actif
+
+  - id: DIEU-099
+    nom: Sagarix
+    domaine: Sagas et transactions longues
+    rang: quaternaire
+    responsabilites:
+      - Orchestration des sagas distribuées
+      - Compensation des transactions longues
+    statut: actif
+
+  - id: DIEU-100
+    nom: Projectix
+    domaine: Projections et vues matérialisées
+    rang: quaternaire
+    responsabilites:
+      - Construction des projections CQRS
+      - Maintenance des vues matérialisées
+    statut: actif
+
+  - id: DIEU-101
+    nom: Commandix
+    domaine: Ségrégation commandes/requêtes (CQRS)
+    rang: quaternaire
+    responsabilites:
+      - Séparation des modèles de lecture/écriture
+      - Coordination des handlers de commandes
+    statut: actif
+
+  - id: DIEU-102
+    nom: Eventstor
+    domaine: Event sourcing et rejeu
+    rang: quaternaire
+    responsabilites:
+      - Stockage des événements comme source de vérité
+      - Rejeu d'événements pour reconstruction d'état
+    statut: actif
+
+  - id: DIEU-103
+    nom: Idempotix
+    domaine: Idempotence et déduplication
+    rang: quaternaire
+    responsabilites:
+      - Garantie d'idempotence des opérations
+      - Déduplication des événements dupliqués
+    statut: actif
+
+  - id: DIEU-104
+    nom: Consensix
+    domaine: Consensus et vote distribué
+    rang: quaternaire
+    responsabilites:
+      - Protocoles de consensus entre nœuds
+      - Validation par vote majoritaire
+    statut: actif
+
+  - id: DIEU-105
+    nom: Shardix
+    domaine: Sharding et partitionnement distribué
+    rang: quaternaire
+    responsabilites:
+      - Partitionnement des données sur les shards
+      - Rééquilibrage dynamique des shards
+    statut: actif
+
+  - id: DIEU-106
+    nom: Replicax
+    domaine: Réplication et haute disponibilité
+    rang: quaternaire
+    responsabilites:
+      - Réplication synchrone des états critiques
+      - Basculement automatique (failover)
+    statut: actif
+
+  - id: DIEU-107
+    nom: Canariex
+    domaine: Déploiements progressifs et canary
+    rang: quaternaire
+    responsabilites:
+      - Orchestration des déploiements canary
+      - Validation des déploiements bleu/vert
+    statut: actif
+
+  - id: DIEU-108
+    nom: Omnivox
+    domaine: Supervison universelle et méta-contrôle
+    rang: quaternaire
+    responsabilites:
+      - Supervision de l'ensemble des 107 dieux
+      - Méta-contrôle du système global
+    statut: actif

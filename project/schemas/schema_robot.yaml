@@ -1,0 +1,70 @@
+version: 1
+description: >
+  Schéma métier de l'entité ROBOT — AI10101IA (T0018).
+  Définit les champs obligatoires, optionnels et les contraintes de l'entité Robot.
+generated_for: T0018
+cree_le: "2026-03-12T00:00:00Z"
+
+schema:
+  type: ROBOT
+  version: 1
+  champs_obligatoires:
+    - nom: id
+      type: string
+      format: "ROBOT-[0-9]{4}"
+      description: Identifiant canonique unique du robot
+    - nom: nom
+      type: string
+      description: Nom propre du robot
+    - nom: classe
+      type: string
+      enum: [Validateur, Archiviste, Exécuteur, Gardien, Scoreur, Reproducteur]
+      description: Classe du robot
+    - nom: statut
+      type: string
+      enum: [actif, inactif, en_formation, en_retraite, archive]
+      description: Statut courant du robot
+    - nom: scores
+      type: object
+      champs:
+        points:
+          type: integer
+          minimum: 0
+        prestige:
+          type: integer
+          minimum: 0
+        credit_social:
+          type: integer
+          minimum: 0
+          maximum: 100
+      description: Scores courants du robot
+  champs_optionnels:
+    - nom: lignee_id
+      type: string
+      description: Lignée d'appartenance
+    - nom: academie_id
+      type: string
+      description: Académie d'inscription courante
+    - nom: dieu_tuteur
+      type: string
+      description: Dieu tuteur du robot
+    - nom: hub_id
+      type: string
+      description: Hub d'appartenance
+    - nom: niveau_maitrise
+      type: integer
+      minimum: 1
+      maximum: 3
+      description: Niveau de maîtrise académique courant
+    - nom: relations
+      type: list[relation]
+      description: Relations avec d'autres entités
+    - nom: metadonnees
+      type: dict
+      description: Métadonnées libres (génération, bootstrap, etc.)
+  contraintes:
+    - Les scores (points, prestige, credit_social) doivent être positifs ou nuls
+    - Le credit_social doit être compris entre 0 et 100
+    - Un robot actif doit appartenir à une lignée
+    - Un robot ne peut être inscrit qu'à une seule académie à la fois
+    - Tout parent référencé dans une relation descendant_de doit exister

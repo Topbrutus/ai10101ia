@@ -1,0 +1,28 @@
+name: "Tâche"
+description: "Référencer une tâche du registre todo_registry.yaml"
+labels: ["tâche"]
+body:
+  - type: input
+    id: task_id
+    attributes:
+      label: "Identifiant de tâche"
+      description: "Identifiant du registre (ex: T0035)"
+      placeholder: "T0000"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Décrire ce qui doit être fait"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: "Critères d'acceptation"
+      description: "Comment valider que la tâche est terminée ?"
+    validations:
+      required: true

@@ -1,0 +1,29 @@
+name: PR gate
+
+on:
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  pr-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate PR body (task reference)
+        run: |
+          python scripts/validate_pr_body.py "${{ github.event.pull_request.body }}"
+
+      - name: Validate todo registry
+        run: python scripts/validate_todo_registry.py --check-master
+
+      - name: Check dependency graph
+        run: python scripts/check_dependencies.py

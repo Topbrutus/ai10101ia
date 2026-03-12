@@ -1,0 +1,62 @@
+version: 1
+description: >
+  Schéma métier de l'entité ACADEMIE — AI10101IA (T0018).
+  Définit les champs obligatoires, optionnels et les contraintes de l'entité Académie.
+generated_for: T0018
+cree_le: "2026-03-12T00:00:00Z"
+
+schema:
+  type: ACADEMIE
+  version: 1
+  champs_obligatoires:
+    - nom: id
+      type: string
+      format: "ACADEMIE-[0-9]{3}"
+      description: Identifiant canonique unique de l'académie
+    - nom: nom
+      type: string
+      description: Nom de l'académie
+    - nom: dieu_tuteur
+      type: string
+      description: Identifiant du dieu tuteur (doit exister dans gods_registry)
+    - nom: statut
+      type: string
+      enum: [actif, inactif, archive]
+      description: Statut courant de l'académie
+    - nom: capacite_max
+      type: integer
+      minimum: 1
+      description: Nombre maximum de robots simultanément inscrits
+    - nom: cursus
+      type: list[niveau_cursus]
+      description: Liste des niveaux du cursus
+  champs_optionnels:
+    - nom: hub_id
+      type: string
+      description: Hub d'appartenance
+    - nom: relations
+      type: list[relation]
+      description: Relations avec d'autres entités
+    - nom: metadonnees
+      type: dict
+      description: Métadonnées libres
+  types_imbriques:
+    niveau_cursus:
+      champs_obligatoires:
+        - nom: niveau
+          type: integer
+          minimum: 1
+          maximum: 3
+        - nom: titre
+          type: string
+        - nom: duree_cycles
+          type: integer
+          minimum: 1
+      champs_optionnels:
+        - nom: competences
+          type: list[string]
+  contraintes:
+    - Le dieu_tuteur doit référencer un dieu existant et actif
+    - Le cursus doit comporter au moins un niveau
+    - Les niveaux du cursus doivent être ordonnés et distincts
+    - Le nombre de robots inscrits ne peut jamais dépasser capacite_max

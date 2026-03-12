@@ -1,0 +1,34 @@
+name: "Décision"
+description: "Enregistrer une décision d'architecture ou de gouvernance"
+labels: ["décision"]
+body:
+  - type: input
+    id: task_ref
+    attributes:
+      label: "Tâche liée (optionnel)"
+      description: "Identifiant de tâche concernée"
+      placeholder: "T0000"
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Contexte"
+      description: "Quel problème cette décision résout-elle ?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: decision
+    attributes:
+      label: "Décision"
+      description: "Quelle décision a été prise ?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: consequences
+    attributes:
+      label: "Conséquences"
+      description: "Quels sont les impacts de cette décision ?"
+    validations:
+      required: true

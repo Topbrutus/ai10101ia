@@ -1,0 +1,34 @@
+name: "Bug"
+description: "Signaler un dysfonctionnement"
+labels: ["bug"]
+body:
+  - type: input
+    id: task_ref
+    attributes:
+      label: "Tâche liée (optionnel)"
+      description: "Identifiant de tâche concernée (ex: T0030)"
+      placeholder: "T0000"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description du bug"
+      description: "Décrire clairement le comportement observé"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Comportement attendu"
+      description: "Que devrait-il se passer ?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Étapes pour reproduire"
+      description: "Comment reproduire le problème ?"
+    validations:
+      required: true

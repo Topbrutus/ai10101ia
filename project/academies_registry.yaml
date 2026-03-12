@@ -1,0 +1,235 @@
+version: 1
+description: >
+  Registre canonique des académies et de leurs cursus — AI10101IA.
+  Chaque académie est placée sous la tutelle d'un dieu et offre un cursus
+  structuré en niveaux de maîtrise.
+generated_for: T0016
+cree_le: "2026-03-12T00:00:00Z"
+
+academies:
+  - id: ACADEMIE-001
+    nom: Académie de Logique Appliquée
+    dieu_tuteur: DIEU-001
+    description: >
+      Forme les robots aux principes de cohérence, de validation des règles
+      et d'arbitrage logique.
+    statut: actif
+    capacite_max: 50
+    cursus:
+      - niveau: 1
+        titre: Fondamentaux de la cohérence
+        duree_cycles: 10
+        competences:
+          - Identification des incohérences
+          - Application des règles de base
+      - niveau: 2
+        titre: Règles avancées et arbitrage
+        duree_cycles: 20
+        competences:
+          - Arbitrage des conflits logiques
+          - Construction de règles complexes
+      - niveau: 3
+        titre: Maîtrise du moteur de règles
+        duree_cycles: 40
+        competences:
+          - Conception du moteur de règles
+          - Optimisation des chaînes d'inférence
+    examens:
+      - niveau: 1
+        type: pratique
+        criteres: Résoudre 5 conflits de cohérence en moins de 10 cycles
+      - niveau: 2
+        type: theorie_et_pratique
+        criteres: Concevoir une règle complexe et la valider sur 20 cas
+      - niveau: 3
+        type: projet
+        criteres: Implémenter un module de moteur de règles documenté
+
+  - id: ACADEMIE-002
+    nom: Académie de la Mémoire Structurée
+    dieu_tuteur: DIEU-002
+    description: >
+      Forme les robots à l'archivage, l'audit et la gestion de l'historique
+      des entités.
+    statut: actif
+    capacite_max: 30
+    cursus:
+      - niveau: 1
+        titre: Indexation et rétention
+        duree_cycles: 8
+        competences:
+          - Indexation des entités
+          - Politique de rétention
+      - niveau: 2
+        titre: Audit avancé et preuves
+        duree_cycles: 15
+        competences:
+          - Génération de rapports d'audit
+          - Validation des preuves cryptographiques
+      - niveau: 3
+        titre: Architecture mémorielle
+        duree_cycles: 30
+        competences:
+          - Conception des systèmes d'archivage
+          - Stratégies de restauration rapide
+    examens:
+      - niveau: 1
+        type: pratique
+        criteres: Indexer 100 entités sans erreur en moins de 8 cycles
+      - niveau: 2
+        type: theorie_et_pratique
+        criteres: Produire un rapport d'audit complet pour un hub pilote
+      - niveau: 3
+        type: projet
+        criteres: Concevoir une architecture d'archivage avec plan de restauration
+
+  - id: ACADEMIE-003
+    nom: Académie de l'Exécution Optimale
+    dieu_tuteur: DIEU-003
+    description: >
+      Forme les robots à l'optimisation des workflows, au contrôle
+      de la performance et à la gestion des ressources.
+    statut: actif
+    capacite_max: 40
+    cursus:
+      - niveau: 1
+        titre: Bases de l'exécution
+        duree_cycles: 10
+        competences:
+          - Ordonnancement des tâches
+          - Mesure des performances
+      - niveau: 2
+        titre: Optimisation avancée
+        duree_cycles: 20
+        competences:
+          - Profiling et détection des goulots
+          - Optimisation des pipelines
+      - niveau: 3
+        titre: Architecture haute performance
+        duree_cycles: 45
+        competences:
+          - Conception de systèmes distribués performants
+          - Stratégies de mise à l'échelle
+    examens:
+      - niveau: 1
+        type: pratique
+        criteres: Réduire le temps d'exécution d'un workflow de 20%
+      - niveau: 2
+        type: theorie_et_pratique
+        criteres: Identifier et corriger 3 goulots d'étranglement dans un pipeline
+      - niveau: 3
+        type: projet
+        criteres: Concevoir et déployer un système capable de traiter 1000 événements/cycle
+
+  - id: ACADEMIE-004
+    nom: Académie de la Sécurité et de l'Intégrité
+    dieu_tuteur: DIEU-010
+    description: >
+      Forme les robots aux pratiques de sécurité, de contrôle d'accès
+      et de détection des anomalies.
+    statut: actif
+    capacite_max: 25
+    cursus:
+      - niveau: 1
+        titre: Fondamentaux de la sécurité
+        duree_cycles: 12
+        competences:
+          - Contrôle des accès de base
+          - Détection des intrusions simples
+      - niveau: 2
+        titre: Sécurité avancée
+        duree_cycles: 25
+        competences:
+          - Analyse des vecteurs d'attaque
+          - Mise en place de contremesures
+      - niveau: 3
+        titre: Architecture de sécurité
+        duree_cycles: 50
+        competences:
+          - Conception des politiques de sécurité globales
+          - Audit de sécurité complet
+    examens:
+      - niveau: 1
+        type: pratique
+        criteres: Détecter et bloquer 10 tentatives d'accès non autorisé
+      - niveau: 2
+        type: theorie_et_pratique
+        criteres: Réaliser un audit de sécurité et produire un rapport d'actions
+      - niveau: 3
+        type: projet
+        criteres: Concevoir et valider une politique de sécurité complète pour un hub
+
+  - id: ACADEMIE-005
+    nom: Académie de la Valeur et des Scores
+    dieu_tuteur: DIEU-009
+    description: >
+      Forme les robots aux systèmes de points, de prestige et de crédit social.
+    statut: actif
+    capacite_max: 35
+    cursus:
+      - niveau: 1
+        titre: Barèmes et calculs de base
+        duree_cycles: 8
+        competences:
+          - Calcul des points d'action
+          - Attribution du prestige initial
+      - niveau: 2
+        titre: Systèmes de scores avancés
+        duree_cycles: 16
+        competences:
+          - Modèles de crédit social
+          - Analyse des trajectoires de score
+      - niveau: 3
+        titre: Conception des systèmes de valeur
+        duree_cycles: 35
+        competences:
+          - Conception des barèmes versionnés
+          - Équilibrage des systèmes incitatifs
+    examens:
+      - niveau: 1
+        type: pratique
+        criteres: Calculer correctement les scores de 20 robots sur un scénario donné
+      - niveau: 2
+        type: theorie_et_pratique
+        criteres: Concevoir un barème de crédit social pour un hub pilote
+      - niveau: 3
+        type: projet
+        criteres: Implémenter et valider un système de scores complet avec tests
+
+  - id: ACADEMIE-006
+    nom: Académie de la Reproduction et des Lignées
+    dieu_tuteur: DIEU-012
+    description: >
+      Forme les robots aux règles de filiation, aux quotas de reproduction
+      et à la gestion des lignées.
+    statut: actif
+    capacite_max: 20
+    cursus:
+      - niveau: 1
+        titre: Règles de filiation de base
+        duree_cycles: 10
+        competences:
+          - Règles de filiation directe
+          - Quotas de reproduction standard
+      - niveau: 2
+        titre: Gestion des lignées
+        duree_cycles: 20
+        competences:
+          - Arbres généalogiques complexes
+          - Transmission des attributs héréditaires
+      - niveau: 3
+        titre: Architecte de lignées
+        duree_cycles: 40
+        competences:
+          - Conception des politiques de reproduction
+          - Optimisation génétique des lignées
+    examens:
+      - niveau: 1
+        type: pratique
+        criteres: Créer une lignée de 3 générations respectant tous les quotas
+      - niveau: 2
+        type: theorie_et_pratique
+        criteres: Gérer une crise de dépassement de quotas dans une lignée
+      - niveau: 3
+        type: projet
+        criteres: Concevoir une politique de reproduction complète pour un hub multi-lignées

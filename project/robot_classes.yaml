@@ -1,0 +1,245 @@
+version: 1
+description: >
+  Registre canonique des classes de robots et des lignées — AI10101IA.
+  Définit les classes, leurs permissions, cycles de vie et règles de filiation.
+generated_for: T0017
+cree_le: "2026-03-12T00:00:00Z"
+
+classes:
+  - id: CLASSE-VALIDATEUR
+    nom: Validateur
+    description: >
+      Robot spécialisé dans la validation des règles métier et la détection
+      des incohérences dans les données et les workflows.
+    permissions:
+      - lecture.entites
+      - ecriture.regles
+      - execution.validation
+      - emission.alertes
+    cycle_de_vie:
+      creation: Attribution d'un dieu tuteur et d'une académie de logique
+      formation: Cursus Académie de Logique Appliquée (niveaux 1 à 3)
+      activite: Validation continue des règles et arbitrage des conflits
+      retraite: Archivage après 500 cycles d'activité ou score de prestige < 5
+    quota_max_par_hub: 20
+    niveau_maitrise_requis: 1
+    score_initial:
+      points: 50
+      prestige: 5
+      credit_social: 70
+
+  - id: CLASSE-ARCHIVISTE
+    nom: Archiviste
+    description: >
+      Robot spécialisé dans la conservation des preuves, la gestion de
+      l'historique et la production des rapports d'audit.
+    permissions:
+      - lecture.entites
+      - lecture.preuves
+      - ecriture.preuves
+      - ecriture.rapports
+      - execution.audit
+    cycle_de_vie:
+      creation: Attribution d'un dieu tuteur et d'une académie de mémoire
+      formation: Cursus Académie de la Mémoire Structurée (niveaux 1 à 3)
+      activite: Conservation, indexation et restitution des preuves
+      retraite: Archivage après 600 cycles ou si le score de prestige < 8
+    quota_max_par_hub: 10
+    niveau_maitrise_requis: 1
+    score_initial:
+      points: 80
+      prestige: 8
+      credit_social: 80
+
+  - id: CLASSE-EXECUTEUR
+    nom: Exécuteur
+    description: >
+      Robot spécialisé dans l'exécution des workflows, l'optimisation des
+      performances et la gestion des ressources.
+    permissions:
+      - lecture.entites
+      - ecriture.evenements
+      - execution.workflows
+      - execution.commandes
+    cycle_de_vie:
+      creation: Attribution d'un dieu tuteur et d'une académie d'exécution
+      formation: Cursus Académie de l'Exécution Optimale (niveaux 1 à 3)
+      activite: Exécution des tâches et optimisation continue
+      retraite: Archivage après 400 cycles ou performance < 60% de référence
+    quota_max_par_hub: 30
+    niveau_maitrise_requis: 1
+    score_initial:
+      points: 30
+      prestige: 2
+      credit_social: 65
+
+  - id: CLASSE-GARDIEN
+    nom: Gardien
+    description: >
+      Robot spécialisé dans la sécurité, le contrôle des accès et la
+      détection des anomalies.
+    permissions:
+      - lecture.entites
+      - lecture.logs
+      - ecriture.alertes
+      - execution.blocage
+      - execution.audit_securite
+    cycle_de_vie:
+      creation: Attribution d'un dieu tuteur de sécurité et d'une académie de sécurité
+      formation: Cursus Académie de la Sécurité et de l'Intégrité (niveaux 1 à 3)
+      activite: Surveillance continue et réponse aux incidents
+      retraite: Archivage après 700 cycles ou après 3 failles non détectées
+    quota_max_par_hub: 5
+    niveau_maitrise_requis: 2
+    score_initial:
+      points: 100
+      prestige: 10
+      credit_social: 85
+
+  - id: CLASSE-SCOREUR
+    nom: Scoreur
+    description: >
+      Robot spécialisé dans le calcul et la gestion des systèmes de points,
+      de prestige et de crédit social.
+    permissions:
+      - lecture.entites
+      - ecriture.scores
+      - execution.calcul_scores
+      - execution.baremes
+    cycle_de_vie:
+      creation: Attribution d'un dieu tuteur des scores et d'une académie des valeurs
+      formation: Cursus Académie de la Valeur et des Scores (niveaux 1 à 3)
+      activite: Calcul et mise à jour des scores des entités
+      retraite: Archivage après 300 cycles ou erreur de calcul répétée
+    quota_max_par_hub: 8
+    niveau_maitrise_requis: 1
+    score_initial:
+      points: 60
+      prestige: 6
+      credit_social: 75
+
+  - id: CLASSE-REPRODUCTEUR
+    nom: Reproducteur
+    description: >
+      Robot spécialisé dans la création de nouvelles lignées et de nouveaux
+      robots, avec contrôle des quotas et gestion de l'héritage.
+    permissions:
+      - lecture.entites
+      - ecriture.lignees
+      - ecriture.robots
+      - execution.reproduction
+      - execution.controle_quotas
+    cycle_de_vie:
+      creation: Attribution du dieu Genitor et de l'académie de reproduction
+      formation: Cursus Académie de la Reproduction et des Lignées (niveaux 1 à 3)
+      activite: Création contrôlée de lignées et robots selon quotas
+      retraite: Archivage après dépassement de 5 violations de quotas
+    quota_max_par_hub: 3
+    niveau_maitrise_requis: 2
+    score_initial:
+      points: 120
+      prestige: 12
+      credit_social: 80
+
+lignees:
+  - id: LIGNEE-AXIOM
+    nom: Lignée Axiom
+    classe_dominante: CLASSE-VALIDATEUR
+    description: >
+      Lignée fondatrice des Validateurs. Spécialisée dans la validation
+      logique et l'arbitrage des règles.
+    dieu_tuteur: DIEU-001
+    attributs_hereditaires:
+      - precision_logique
+      - resistance_aux_erreurs
+    quota_membres_max: 10
+    regles_filiation:
+      - Un Validateur de niveau 2 minimum peut initier une reproduction
+      - Le robot descendant hérite de 60% des points du parent
+      - Le crédit social initial du descendant est la moyenne des parents
+    statut: actif
+
+  - id: LIGNEE-MNEMO
+    nom: Lignée Mnemo
+    classe_dominante: CLASSE-ARCHIVISTE
+    description: >
+      Lignée des Archivistes. Spécialisée dans la conservation de la mémoire
+      et la production de preuves fiables.
+    dieu_tuteur: DIEU-002
+    attributs_hereditaires:
+      - capacite_memorielle
+      - fiabilite_des_preuves
+    quota_membres_max: 8
+    regles_filiation:
+      - Un Archiviste de niveau 2 minimum peut initier une reproduction
+      - Le robot descendant hérite de la capacité mémorielle accrue
+      - Le prestige initial du descendant est réduit de 20% par rapport au parent
+    statut: actif
+
+  - id: LIGNEE-EXEC
+    nom: Lignée Exec
+    classe_dominante: CLASSE-EXECUTEUR
+    description: >
+      Lignée des Exécuteurs. Spécialisée dans l'optimisation des workflows
+      et la performance d'exécution.
+    dieu_tuteur: DIEU-003
+    attributs_hereditaires:
+      - vitesse_execution
+      - optimisation_ressources
+    quota_membres_max: 15
+    regles_filiation:
+      - Un Exécuteur de niveau 1 minimum peut initier une reproduction
+      - Le robot descendant hérite de la vitesse d'exécution majorée de 10%
+      - Le quota initial de ressources du descendant est de 80% du parent
+    statut: actif
+
+  - id: LIGNEE-SENTINEL
+    nom: Lignée Sentinel
+    classe_dominante: CLASSE-GARDIEN
+    description: >
+      Lignée des Gardiens. Spécialisée dans la sécurité et la protection
+      de l'intégrité du système.
+    dieu_tuteur: DIEU-010
+    attributs_hereditaires:
+      - acuite_securitaire
+      - detection_avancee
+    quota_membres_max: 5
+    regles_filiation:
+      - Un Gardien de niveau 3 est requis pour initier une reproduction
+      - Le robot descendant hérite du niveau de détection du parent
+      - Le crédit social initial du descendant est de 85 minimum
+    statut: actif
+
+  - id: LIGNEE-SCALA
+    nom: Lignée Scala
+    classe_dominante: CLASSE-SCOREUR
+    description: >
+      Lignée des Scoreurs. Spécialisée dans le calcul et l'équilibrage
+      des systèmes de valeur.
+    dieu_tuteur: DIEU-009
+    attributs_hereditaires:
+      - precision_calcul
+      - connaissance_baremes
+    quota_membres_max: 6
+    regles_filiation:
+      - Un Scoreur de niveau 2 minimum peut initier une reproduction
+      - Le robot descendant hérite des barèmes maîtrisés du parent
+      - Le score de points initial du descendant est de 70% du parent
+    statut: actif
+
+  - id: LIGNEE-GENESIS
+    nom: Lignée Genesis
+    classe_dominante: CLASSE-REPRODUCTEUR
+    description: >
+      Lignée fondatrice des Reproducteurs. Spécialisée dans la création
+      contrôlée de nouvelles entités.
+    dieu_tuteur: DIEU-012
+    attributs_hereditaires:
+      - capacite_reproductive
+      - controle_genealogique
+    quota_membres_max: 3
+    regles_filiation:
+      - Un Reproducteur de niveau 3 est requis pour initier une reproduction dans cette lignée
+      - La création de nouveaux Reproducteurs requiert l'approbation du dieu Genitor
+      - Le quota de reproduction du descendant est de 50% du parent à la création
+    statut: actif

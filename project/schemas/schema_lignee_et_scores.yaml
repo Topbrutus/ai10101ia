@@ -1,0 +1,82 @@
+version: 1
+description: >
+  Schéma métier de l'entité LIGNEE — AI10101IA (T0018).
+  Définit les champs obligatoires, optionnels et les contraintes de l'entité Lignée.
+generated_for: T0018
+cree_le: "2026-03-12T00:00:00Z"
+
+schema:
+  type: LIGNEE
+  version: 1
+  champs_obligatoires:
+    - nom: id
+      type: string
+      format: "LIGNEE-[0-9]{3}"
+      description: Identifiant canonique unique de la lignée
+    - nom: nom
+      type: string
+      description: Nom de la lignée
+    - nom: classe_dominante
+      type: string
+      description: Classe principale des membres de la lignée
+    - nom: statut
+      type: string
+      enum: [actif, inactif, archive]
+      description: Statut courant de la lignée
+    - nom: membres
+      type: list[string]
+      description: Liste des identifiants des robots membres
+  champs_optionnels:
+    - nom: fondateur_id
+      type: string
+      description: Identifiant du robot fondateur
+    - nom: dieu_tuteur
+      type: string
+      description: Identifiant du dieu tuteur
+    - nom: hub_id
+      type: string
+      description: Hub d'appartenance
+    - nom: relations
+      type: list[relation]
+      description: Relations avec d'autres entités
+    - nom: metadonnees
+      type: dict
+      description: Métadonnées libres
+  contraintes:
+    - Le fondateur_id doit référencer un robot existant et membre de la lignée
+    - Le dieu_tuteur doit référencer un dieu existant et actif
+    - Tout membre doit référencer un robot existant
+    - Une lignée ne peut pas avoir un nombre de membres supérieur à son quota
+
+schema_scores:
+  description: Schéma des scores d'une entité robot
+  version: 1
+  champs:
+    points:
+      type: integer
+      minimum: 0
+      description: Points d'action cumulés
+    prestige:
+      type: integer
+      minimum: 0
+      description: Score de prestige (réputationnel)
+    credit_social:
+      type: integer
+      minimum: 0
+      maximum: 100
+      description: Score de crédit social (confiance systémique)
+  regles_calcul:
+    points:
+      attribution: Chaque action validée rapporte des points selon le barème de la tâche
+      deduction: Toute erreur validée déduit des points selon le barème d'erreur
+    prestige:
+      attribution: Atteinte d'un niveau académique, distinction, contribution majeure
+      deduction: Faille de sécurité, violation de quota, comportement non conforme
+    credit_social:
+      attribution: Conformité aux règles, participation aux scrutins, actes civiques
+      deduction: Violations répétées, sanctions formelles, inactivité prolongée
+      seuils:
+        critique: 30
+        avertissement: 50
+        standard: 70
+        excellent: 90

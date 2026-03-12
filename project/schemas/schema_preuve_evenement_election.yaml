@@ -1,0 +1,126 @@
+version: 1
+description: >
+  Schémas métier des entités PREUVE et EVENEMENT — AI10101IA (T0018).
+  Définit les champs obligatoires, optionnels et les contraintes.
+generated_for: T0018
+cree_le: "2026-03-12T00:00:00Z"
+
+schema_preuve:
+  type: PREUVE
+  version: 1
+  champs_obligatoires:
+    - nom: id
+      type: string
+      format: "PREUVE-[0-9]{4}"
+      description: Identifiant canonique unique de la preuve
+    - nom: type_preuve
+      type: string
+      enum:
+        - execution_regle
+        - execution_commande
+        - validation_tache
+        - modification_entite
+        - decision_humaine
+        - attribution_points
+        - operation_index
+        - revue_documentaire
+        - alerte_securite
+        - evenement_systeme
+      description: Type de preuve
+    - nom: date_preuve
+      type: string
+      format: ISO 8601
+      description: Date et heure de la preuve
+    - nom: auteur
+      type: string
+      description: Auteur ou système ayant produit la preuve
+    - nom: origine
+      type: string
+      enum: [bus_slash, moteur_regles, agent_humain, systeme, ci_cd]
+      description: Origine de la preuve
+    - nom: entite_id
+      type: string
+      description: Identifiant de l'entité concernée par la preuve
+  champs_optionnels:
+    - nom: description
+      type: string
+      description: Description détaillée de la preuve
+    - nom: hash_contenu
+      type: string
+      description: Empreinte cryptographique du contenu prouvé
+    - nom: references
+      type: list[string]
+      description: Références à d'autres preuves ou entités
+    - nom: metadonnees
+      type: dict
+      description: Métadonnées libres
+
+schema_evenement:
+  type: EVENEMENT
+  version: 1
+  champs_obligatoires:
+    - nom: id
+      type: string
+      format: "EVT-[0-9]{4}"
+      description: Identifiant canonique unique de l'événement
+    - nom: type
+      type: string
+      description: Type d'événement (ex: creation_robot, promotion_academique, etc.)
+    - nom: date
+      type: string
+      format: ISO 8601
+      description: Date et heure de l'événement
+    - nom: description
+      type: string
+      description: Description de l'événement
+  champs_optionnels:
+    - nom: entite_id
+      type: string
+      description: Identifiant de l'entité concernée
+    - nom: preuve_id
+      type: string
+      description: Preuve associée à l'événement
+    - nom: auteur
+      type: string
+      description: Auteur ou déclencheur de l'événement
+    - nom: metadonnees
+      type: dict
+      description: Métadonnées libres
+
+schema_election:
+  type: ELECTION
+  version: 1
+  description: Schéma d'une élection de robot dans le système
+  champs_obligatoires:
+    - nom: id
+      type: string
+      format: "ELECTION-[0-9]{4}"
+      description: Identifiant canonique unique de l'élection
+    - nom: titre
+      type: string
+      description: Titre de l'élection
+    - nom: date_ouverture
+      type: string
+      format: ISO 8601
+      description: Date d'ouverture du scrutin
+    - nom: date_cloture
+      type: string
+      format: ISO 8601
+      description: Date de clôture du scrutin
+    - nom: candidats
+      type: list[string]
+      description: Liste des identifiants de robots candidats
+    - nom: electeurs_eligibles
+      type: list[string]
+      description: Liste des identifiants de robots électeurs éligibles
+    - nom: statut
+      type: string
+      enum: [planifiee, ouverte, cloturee, annulee]
+      description: Statut de l'élection
+  champs_optionnels:
+    - nom: resultats
+      type: dict
+      description: Résultats de l'élection (disponibles après clôture)
+    - nom: preuve_id
+      type: string
+      description: Preuve de la bonne tenue du scrutin

@@ -1,0 +1,26 @@
+name: "Fonctionnalité"
+description: "Proposer une nouvelle fonctionnalité"
+labels: ["feature"]
+body:
+  - type: input
+    id: task_ref
+    attributes:
+      label: "Tâche liée (optionnel)"
+      description: "Identifiant de tâche concernée (ex: T0035)"
+      placeholder: "T0000"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description de la fonctionnalité"
+      description: "Décrire la fonctionnalité souhaitée"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Motivation"
+      description: "Pourquoi cette fonctionnalité est-elle nécessaire ?"
+    validations:
+      required: true
