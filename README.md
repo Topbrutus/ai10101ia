@@ -85,9 +85,13 @@ make test
 
 ## État de la fondation
 
-La **fondation AI10101IA est close** (T0001–T0040 terminés).
+Le socle validé de la fondation AI10101IA couvre **T0001–T0033, T0039 et T0040** (statut `done`).
+
+Les tâches **T0034–T0038** (staging, production initiale, exploitation, tests avancés, multi-hub) restent **à faire** (`todo`).
 
 Ce dépôt n'est pas en production. La phase d'industrialisation est à venir.
+
+> En cas de divergence documentaire, `project/todo_registry.yaml` fait foi.
 
 ### Prochaines étapes
 
